@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using _32ba.Script;
 using LiteDB;
 using UnityEngine;
@@ -14,18 +16,16 @@ internal static class APIEndpoints
     public const string UserSignup = BaseURL + "/user/signup";
     public static string UserUpdate = BaseURL + "/user/update";
     public static string TokenUpdate = BaseURL + "/token/update";
-    public static string Ranking = BaseURL + "/ranking";
+    public const string Ranking = BaseURL + "/ranking";
 }
 
 class UserInfo
 {
     public int Id { get; set; }
     public string Guid { get; set; }
+    public string Name { get; set; }
     public string AccessToken { get; set; }
     public string RefreshToken { get; set; }
-
-    
-
 }
 
 [Serializable]
@@ -54,6 +54,7 @@ public class SignupResponse
 [Serializable]
 public class SendScoreRequest
 {
+    [SerializeField] public string song_uuid = "";
     [SerializeField] public long score = 0;
 
     public static string ToJson(SendScoreRequest model)
@@ -62,24 +63,49 @@ public class SendScoreRequest
     }
 }
 
+public class GetRankingRequest
+{
+    public string SongUuid { get; set; }
+    public string RankingType { get; set; }
+}
+
+[Serializable]
+public class GetRankingResponse
+{
+    [Serializable]
+    public class Ranking
+    {
+        [SerializeField] public int rank = 0;
+        [SerializeField] public long score = 0;
+        [SerializeField] public string name = "";
+    }
+    [SerializeField] public string song_uuid = "";
+    [SerializeField] public string ranking_type = "";
+    [SerializeField] public List<Ranking> ranking;
+    
+    public static GetRankingResponse FromJson(string json)
+    {
+        return JsonUtility.FromJson<GetRankingResponse>(json);
+    }
+} 
+
 public class APIManager : SingletonMonoBehaviour<APIManager>
 {
-    private static LiteDatabase _db;
     private void Awake()
     {
-        _db = DBManager.Init(Application.persistentDataPath);
+        if (this != Instance)
+        {
+            Destroy(this);
+            return;
+        }
+        DontDestroyOnLoad(this.gameObject);
     }
 
-    private void OnDestroy()
-    {
-        _db.Dispose();
-    }
-    
     public static async Task<bool> Signup()
     {
         var json = new SignupRequest();
         {
-            json.guid = GetGuid(_db);
+            json.guid = GetGuid(DBManager.Instance.DB);
         }
         var reqJson = SignupRequest.ToJson(json);
         var req = await _postJsonRequest(APIEndpoints.UserSignup, reqJson);
@@ -93,19 +119,36 @@ public class APIManager : SingletonMonoBehaviour<APIManager>
                 AccessToken = res.access_token,
                 RefreshToken = res.refresh_token
             };
-        var dbUserInfo = _db.GetCollection<UserInfo>("UserInfo");
+        var dbUserInfo = DBManager.Instance.DB.GetCollection<UserInfo>("UserInfo");
         dbUserInfo.Update(userInfo);
         return true;
     }
 
     public static async Task<bool> SendScore(SendScoreRequest request)
     {
-        var accesstoken = GetAccessToken(_db);
-
+        var accesstoken = GetAccessToken(DBManager.Instance.DB);
         var req = await _postJsonRequest(APIEndpoints.Ranking, SendScoreRequest.ToJson(request), accesstoken);
         return req.result == UnityWebRequest.Result.Success && req.responseCode == 200;
     }
 
+    public static async Task<GetRankingResponse> GetRanking(GetRankingRequest request)
+    {
+        var queryParams = $"?song_uuid={request.SongUuid}&ranking_type={request.RankingType}";
+        var req = await _getJsonRequest(APIEndpoints.Ranking, queryParams);
+        return GetRankingResponse.FromJson(req.downloadHandler.text);
+    }
+
+    private static async Task<UnityWebRequest> _getJsonRequest(string url, string queryParams = null, string auth = null)
+    {
+        var getUrl = url;
+        if (queryParams != null) getUrl += queryParams;
+        var req = new UnityWebRequest(getUrl, "GET");
+        if(auth != null)req.SetRequestHeader("Authorization", auth);
+        req.downloadHandler = new DownloadHandlerBuffer();
+        await req.SendWebRequest();
+        return req;
+    }
+    
     private static async Task<UnityWebRequest> _postJsonRequest(string url, string json, string auth = null)
     {
         var postData = System.Text.Encoding.UTF8.GetBytes(json);
