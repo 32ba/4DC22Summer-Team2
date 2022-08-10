@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000000000
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d5ad33f4345f374785830ababf93252, type: 2}
   m_sharedMaterial: {fileID: -8464368256640083179, guid: 0d5ad33f4345f374785830ababf93252, type: 2}
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -287,6 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbdd8affc51fc94a967d8b791c71553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  songUuid: 
+  score: 0
 --- !u!4 &134384998
 Transform:
   m_ObjectHideFlags: 0
@@ -440,7 +442,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30CF\u30A4\u30B9\u30B3\u30A2 : 10000000000000"
+  m_text: "\u30CF\u30A4\u30B9\u30B3\u30A2 : "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d5ad33f4345f374785830ababf93252, type: 2}
   m_sharedMaterial: {fileID: -8464368256640083179, guid: 0d5ad33f4345f374785830ababf93252, type: 2}
@@ -633,6 +635,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreboardPrefabObj: {fileID: 6852275392515155821, guid: 223d2f988493ec247849b9d6b7aadffb, type: 3}
   scoreboardElementObj: {fileID: 1923684265}
+  scoreText: {fileID: 114548887}
+  highScoreText: {fileID: 283697198}
 --- !u!1 &312163761
 GameObject:
   m_ObjectHideFlags: 0
