@@ -13,9 +13,9 @@ public class NotesScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position += new Vector3(-0.01f, 0f, 0f);
+        transform.position += new Vector3(-0.05f, 0f, 0f);
     }
 
 }

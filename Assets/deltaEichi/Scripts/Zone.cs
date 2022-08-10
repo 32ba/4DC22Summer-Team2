@@ -43,7 +43,7 @@ public class Zone : MonoBehaviour
     void Update()
     {
         //Aキーが入力されたとき
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             //ノーツAが判定ゾーンにあれば
             if (boolIsNotesAStay)
