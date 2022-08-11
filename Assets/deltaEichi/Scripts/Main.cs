@@ -12,7 +12,7 @@ public class Main : MonoBehaviour
     [SerializeField] GameObject NotesEX;
     [SerializeField] GameObject Zone;
 
-    private AudioSource source;
+    private AudioSource[] sources;
 
     [Serializable] public class InputJson
     {
@@ -54,7 +54,7 @@ public class Main : MonoBehaviour
 
     void Awake()
     {
-        source = gameObject.GetComponent<AudioSource>();
+        sources = gameObject.GetComponents<AudioSource>();
         string path = Application.dataPath + "/deltaEichi/jsons/test.json";
         using(var fs = new StreamReader(path, System.Text.Encoding.GetEncoding("UTF-8")))
         {
@@ -86,7 +86,7 @@ public class Main : MonoBehaviour
 
         if (beatCount >= scoreNum.Length)
         {
-            Debug.Log("�I��");
+            Debug.Log("end");
             isEnd = true;
             score = Zone.gameObject.GetComponent<Zone>().score;
             Debug.Log(score);
@@ -125,7 +125,7 @@ public class Main : MonoBehaviour
 
             if (scoreBlock[beatCount]==0)
             {
-                source.Play();
+                sources[0].Play();
             }
 
             if(scoreBlock[beatCount]==1){
@@ -134,6 +134,11 @@ public class Main : MonoBehaviour
 
             if(scoreBlock[beatCount]==2){ 
                 Instantiate(NotesB, new Vector3(10f, v3, 0f), Quaternion.identity);
+            }
+
+            if(scoreBlock[beatCount] == 4)
+            {
+                sources[1].Play();
             }
 
             beatCount++;
