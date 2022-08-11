@@ -53,12 +53,17 @@ public class ResultUIManager : MonoBehaviour
             SetHighScore(ScoreGetter.Instance.songUuid, ScoreGetter.Instance.score);
             highScore = ScoreGetter.Instance.score;
         }
-        highScoreText.text = "ハイスコア : " + highScore;
+        highScoreText.text = highScore.ToString();
     }
 
     public void OnClickTitleButton()
     {
         SceneManager.LoadScene("SampleScene");
+    }
+
+    public void OnClickRetryButton()
+    {
+        SceneManager.LoadScene("");
     }
     
     private class HighScore
