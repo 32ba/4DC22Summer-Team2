@@ -28,7 +28,7 @@ public class DBManager: SingletonMonoBehaviour<DBManager>
         DB = DBManager.Init(Application.persistentDataPath);
     }
 
-    private void OnDestroy()
+    private void OnApplicationQuit()
     {
         DB.Dispose();
     }
