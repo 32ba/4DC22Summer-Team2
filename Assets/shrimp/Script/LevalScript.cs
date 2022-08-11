@@ -6,24 +6,31 @@ using UnityEngine.SceneManagement;
 
 public class LevalScript : MonoBehaviour
 {
-    public static int selectLevelNumber;
+    public static string selectLevelID;
 
     void Start() 
     {
-        selectLevelNumber = 0; 
+        selectLevelID = "0"; 
     }
 
     public void OnClickA()
     {
-        selectLevelNumber = 0; 
+        selectLevelID = "0f1b605e-53e1-45ca-92a8-8dc97a63071e"; 
     }
     public void OnClickB()
     {
-        selectLevelNumber = 1; 
+        selectLevelID = "1"; 
     }
 
     public void OnClickStart()
     {
-        SceneManager.LoadScene("test");
+        if(selectLevelID == "0")
+        {
+
+        }
+        else
+        {
+            SceneManager.LoadScene("test");
+        }
     }
 }
