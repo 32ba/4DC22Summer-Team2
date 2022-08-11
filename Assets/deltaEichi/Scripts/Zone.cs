@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Zone : MonoBehaviour
 {
@@ -11,19 +12,23 @@ public class Zone : MonoBehaviour
     [SerializeField] GameObject BinA;
     [SerializeField] GameObject BinB;
     [SerializeField] GameObject Miss;
+    public Slider slider;
+
+    private AudioSource[] sources;
 
     public bool boolIsNotesAStay = false;
     public bool boolIsNotesBStay = false;
+    public bool boolIsNotesEXStay = false;
 
     public int intAinA = 0;
     public int intAinB = 0;
     public int intBinA = 0;
     public int intBinB = 0;
+    private float hitPoint = 100;
 
     public int miss = 0;
 
     public Collider2D col;
-
     void UIUpdate()
     {
         AinA.GetComponent<TextMeshProUGUI>().text = "AinA: " + intAinA;
@@ -31,6 +36,12 @@ public class Zone : MonoBehaviour
         BinA.GetComponent<TextMeshProUGUI>().text = "BinA: " + intBinA;
         BinB.GetComponent<TextMeshProUGUI>().text = "BinB: " + intBinB;
         Miss.GetComponent<TextMeshProUGUI>().text = "Miss: " + miss;
+    }
+    void Awake()
+    {
+        sources = gameObject.GetComponents<AudioSource>();
+        Debug.Log(slider.GetComponent<Slider>().value);
+        slider.GetComponent<Slider>().value = 1;
     }
 
     // Start is called before the first frame update
@@ -48,12 +59,15 @@ public class Zone : MonoBehaviour
             //ÉmÅ[ÉcAÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
             if (boolIsNotesAStay)
             {
+                sources[0].Play();
                 boolIsNotesAStay = false;
                 Debug.Log("A!");
                 /*
                 Debug.Log(this.transform.position);
                 Debug.Log(col.transform.position);
                 */
+                NotesScript script = col.gameObject.GetComponent<NotesScript>();
+                script.boolActive = false;
                 Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
                 Destroy(col.gameObject);
 
@@ -64,12 +78,33 @@ public class Zone : MonoBehaviour
             //ÉmÅ[ÉcBÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
             if (boolIsNotesBStay)
             {
+                sources[0].Play();
                 boolIsNotesAStay = false;
                 Debug.Log("NotA!");
                 /*
                 Debug.Log(this.transform.position);
                 Debug.Log(col.transform.position);
                 */
+                NotesScript script = col.gameObject.GetComponent<NotesScript>();
+                script.boolActive = false;
+                Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
+                Destroy(col.gameObject);
+
+                intAinB++;
+                UIUpdate();
+            }
+
+            if (boolIsNotesExStay)
+            {
+                sources[0].Play();
+                boolIsNotesAStay = false;
+                Debug.Log("NotA!");
+                /*
+                Debug.Log(this.transform.position);
+                Debug.Log(col.transform.position);
+                */
+                NotesScript script = col.gameObject.GetComponent<NotesScript>();
+                script.boolActive = false;
                 Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
                 Destroy(col.gameObject);
 
@@ -84,12 +119,15 @@ public class Zone : MonoBehaviour
             //ÉmÅ[ÉcBÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
             if (boolIsNotesBStay)
             {
+                sources[0].Play();
                 boolIsNotesBStay = false;
                 Debug.Log("B!");
                 /*
                 Debug.Log(this.transform.position);
                 Debug.Log(col.transform.position);
                 */
+                NotesScript script = col.gameObject.GetComponent<NotesScript>();
+                script.boolActive = false;
                 Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
                 Destroy(col.gameObject);
 
@@ -100,12 +138,15 @@ public class Zone : MonoBehaviour
             //ÉmÅ[ÉcAÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
             if (boolIsNotesAStay)
             {
+                sources[0].Play();
                 boolIsNotesBStay = false;
                 Debug.Log("NotB!");
                 /*
                 Debug.Log(this.transform.position);
                 Debug.Log(col.transform.position);
                 */
+                NotesScript script = col.gameObject.GetComponent<NotesScript>();
+                script.boolActive = false;
                 Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
                 Destroy(col.gameObject);
 
@@ -130,21 +171,50 @@ public class Zone : MonoBehaviour
             col = other;
         }
 
+        if (other.gameObject.CompareTag("NotesEX"))
+        {
+            boolIsNotesEXStay = true;
+            col = other;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
+        NotesScript script = other.GetComponent<NotesScript>();
         if (other.gameObject.CompareTag("NotesA"))
         {
             boolIsNotesAStay = false;
+            if (script.boolActive)
+            {
+                Debug.Log("miss");
+                hitPoint -= 10;
+                miss++;
+                slider.GetComponent<Slider>().value = hitPoint / 100f;
+                Debug.Log(hitPoint + "/100");
+            }
+            else
+            {
+                Debug.Log("Notmiss");
+            }
         }
 
         if (other.gameObject.CompareTag("NotesB"))
         {
             boolIsNotesBStay = false;
+            if (script.boolActive)
+            {
+                Debug.Log("miss");
+                hitPoint -= 10;
+                miss++;
+                Debug.Log(hitPoint/100);
+                slider.GetComponent<Slider>().value = hitPoint / 100f;
+            }
+            else
+            {
+                Debug.Log("Notmiss");
+            }
         }
 
-        miss++;
         UIUpdate();
     }
 

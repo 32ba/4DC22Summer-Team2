@@ -4,7 +4,27 @@ using UnityEngine;
 
 public class NotesScript : MonoBehaviour
 {
-    public string objName;
+    float time = 1;
+    private GameObject zone;
+    private GameObject main;
+    private Main mainScript;
+
+    public bool boolActive;
+    private Vector3 notesVelocity;
+
+
+    void OnEnable()
+    {
+        zone = GameObject.Find("Zone");
+        notesVelocity = (zone.transform.position - transform.position) / time;
+        Debug.Log(notesVelocity);
+        boolActive = true;
+        /*
+        main = GameObject.Find("Main");
+        mainScript = main.GetComponent<Main>();
+        Debug.Log(mainScript.BPM);
+        */
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -12,11 +32,11 @@ public class NotesScript : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        transform.position += new Vector3(-0.05f, 0f, 0f);
+        transform.position += notesVelocity * Time.deltaTime;
     }
+
 
 }
 
