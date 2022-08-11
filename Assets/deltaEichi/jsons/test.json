@@ -1,0 +1,44 @@
+{
+    "name": "str",
+    "uuid": "0f1b605e-53e1-45ca-92a8-8dc97a63071e",
+    "diff": 1,
+    "BPM": 120,
+    "LPB": 2,
+    "music": "夏空 4day2022s(2).ogg",
+    "chart":[
+
+        
+        {"time": 2, "direction": 1, "type": 4},
+        {"time": 4, "direction": 1, "type": 4},
+        {"time": 6, "direction": 1, "type": 4},
+        {"time": 8, "direction": 1, "type": 4},
+
+        {"time": 16, "direction": 1, "type": 0},
+
+
+        {"time": 20, "direction": 1, "type": 1},
+        {"time": 22, "direction": 1, "type": 1},
+        {"time": 24, "direction": 1, "type": 1},
+        {"time": 26, "direction": 1, "type": 1},
+        {"time": 28, "direction": 1, "type": 2},
+        {"time": 30, "direction": 1, "type": 2},
+        {"time": 32, "direction": 1, "type": 2},
+        {"time": 34, "direction": 1, "type": 2},
+
+        {"time": 38, "direction": 1, "type": 1},
+        {"time": 40, "direction": 1, "type": 2},
+        {"time": 42, "direction": 1, "type": 1},
+        {"time": 44, "direction": 1, "type": 2},
+        {"time": 46, "direction": 1, "type": 1},
+        {"time": 48, "direction": 1, "type": 2},
+        {"time": 50, "direction": 1, "type": 1},
+        {"time": 52, "direction": 1, "type": 2},
+        
+        {"time": 56, "direction": 0, "type": 1},
+        {"time": 58, "direction": 1, "type": 1},
+        {"time": 60, "direction": 2, "type": 1},
+        {"time": 62, "direction": 0, "type": 1},
+        {"time": 64, "direction": 1, "type": 1},
+        {"time": 68, "direction": 2, "type": 1}
+    ]
+}

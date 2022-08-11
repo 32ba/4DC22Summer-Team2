@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 2914020503
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3fb1ecf72f3782bcecb4799c5f27ae81
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/32ba/assetbundletest.json
+Dependencies: []
