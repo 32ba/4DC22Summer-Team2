@@ -20,6 +20,10 @@ public class Zone : MonoBehaviour
     public bool boolIsNotesBStay = false;
     public bool boolIsNotesEXStay = false;
 
+    public int notesPerfect = 0;
+    public int notesGreat = 0;
+    public int notesGood = 0;
+
     public int intAinA = 0;
     public int intAinB = 0;
     public int intBinA = 0;
@@ -31,6 +35,15 @@ public class Zone : MonoBehaviour
     public int intCountEX = 0;
 
     public Collider2D col;
+
+
+    private int magni = 2;
+    private int perfectScore = 4;
+    private int greatScore = 2;
+    private int goodScore = 1;
+
+    public int score = 0;
+
     void UIUpdate()
     {
         AinA.GetComponent<TextMeshProUGUI>().text = "AinA: " + intAinA;
@@ -68,17 +81,33 @@ public class Zone : MonoBehaviour
                 //ÉmÅ[ÉcAÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
                 if (boolIsNotesAStay)
                 {
+                    float floatDist = Vector3.Distance(this.transform.position, col.transform.position);
+                    int s;
+                    if (floatDist < 0.1f)
+                    {
+                        notesPerfect++;
+                        Debug.Log("Perfect!");
+                        s = perfectScore;
+                    }
+                    else if(floatDist < 0.3f)
+                    {
+                        notesGreat++;
+                        Debug.Log("Great!");
+                        s = greatScore;
+                    }
+                    else
+                    {
+                        notesGood++;
+                        Debug.Log("Good!");
+                        s = goodScore;
+                    }
+                    score += s * magni;
                     sources[0].Play();
                     boolIsNotesAStay = false;
-                    Debug.Log("A!");
-                    /*
-                    Debug.Log(this.transform.position);
-                    Debug.Log(col.transform.position);
-                    */
                     NotesScript script = col.gameObject.GetComponent<NotesScript>();
                     script.boolActive = false;
-                    Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
                     Destroy(col.gameObject);
+
 
                     intAinA++;
                     UIUpdate();
@@ -87,6 +116,29 @@ public class Zone : MonoBehaviour
                 //ÉmÅ[ÉcBÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
                 if (boolIsNotesBStay)
                 {
+                    float floatDist = Vector3.Distance(this.transform.position, col.transform.position);
+                    int s;
+                    if (floatDist < 0.1)
+                    {
+                        notesPerfect++;
+                        Debug.Log("Perfect!");
+                        s = perfectScore;
+                    }
+                    else if (floatDist < 0.2)
+                    {
+                        notesGreat++;
+                        Debug.Log("Great!");
+                        s = greatScore;
+                    }
+                    else
+                    {
+                        notesGood++;
+                        Debug.Log("Good!");
+                        s = goodScore;
+                    }
+
+                    score += s;
+
                     sources[1].Play();
                     boolIsNotesAStay = false;
                     Debug.Log("NotA!");
@@ -96,30 +148,12 @@ public class Zone : MonoBehaviour
                     */
                     NotesScript script = col.gameObject.GetComponent<NotesScript>();
                     script.boolActive = false;
-                    Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
                     Destroy(col.gameObject);
 
                     intAinB++;
                     UIUpdate();
                 }
 
-                if (boolIsNotesEXStay)
-                {
-                    sources[0].Play();
-                    boolIsNotesAStay = false;
-                    Debug.Log("NotA!");
-                    /*
-                    Debug.Log(this.transform.position);
-                    Debug.Log(col.transform.position);
-                    */
-                    NotesScript script = col.gameObject.GetComponent<NotesScript>();
-                    script.boolActive = false;
-                    Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
-                    Destroy(col.gameObject);
-
-                    intAinB++;
-                    UIUpdate();
-                }
             }
         }
 
@@ -135,6 +169,28 @@ public class Zone : MonoBehaviour
                 //ÉmÅ[ÉcBÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
                 if (boolIsNotesBStay)
                 {
+                    float floatDist = Vector3.Distance(this.transform.position, col.transform.position);
+                    int s;
+                    if (floatDist < 0.1)
+                    {
+                        notesPerfect++;
+                        Debug.Log("Perfect!");
+                        s = perfectScore;
+                    }
+                    else if (floatDist < 0.2)
+                    {
+                        notesGreat++;
+                        Debug.Log("Great!");
+                        s = greatScore;
+                    }
+                    else
+                    {
+                        notesGood++;
+                        Debug.Log("Good!");
+                        s = goodScore;
+                    }
+
+                    score += s * magni;
                     sources[1].Play();
                     boolIsNotesBStay = false;
                     Debug.Log("B!");
@@ -144,7 +200,6 @@ public class Zone : MonoBehaviour
                     */
                     NotesScript script = col.gameObject.GetComponent<NotesScript>();
                     script.boolActive = false;
-                    Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
                     Destroy(col.gameObject);
 
                     intBinB++;
@@ -154,6 +209,28 @@ public class Zone : MonoBehaviour
                 //ÉmÅ[ÉcAÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
                 if (boolIsNotesAStay)
                 {
+                    float floatDist = Vector3.Distance(this.transform.position, col.transform.position);
+                    int s;
+                    if (floatDist < 0.1)
+                    {
+                        notesPerfect++;
+                        Debug.Log("Perfect!");
+                        s = perfectScore;
+                    }
+                    else if (floatDist < 0.2)
+                    {
+                        notesGreat++;
+                        Debug.Log("Great!");
+                        s = greatScore;
+                    }
+                    else
+                    {
+                        notesGood++;
+                        Debug.Log("Good!");
+                        s = goodScore;
+                    }
+
+                    score += s;
                     sources[0].Play();
                     boolIsNotesBStay = false;
                     Debug.Log("NotB!");
@@ -163,7 +240,6 @@ public class Zone : MonoBehaviour
                     */
                     NotesScript script = col.gameObject.GetComponent<NotesScript>();
                     script.boolActive = false;
-                    Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
                     Destroy(col.gameObject);
 
                     intBinA++;

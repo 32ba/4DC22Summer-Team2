@@ -9,6 +9,7 @@ public class Main : MonoBehaviour
     [SerializeField] GameObject NotesA;
     [SerializeField] GameObject NotesB;
     [SerializeField] GameObject NotesEX;
+    [SerializeField] GameObject Zone;
 
     private AudioSource source;
 
@@ -18,6 +19,7 @@ public class Main : MonoBehaviour
         public int LPB;
         public string music;
         public Notes[] chart;
+        public string uuid;
     }
 
     [Serializable] public class Notes
@@ -35,6 +37,10 @@ public class Main : MonoBehaviour
 
     private int BPM;
     private int LPB;
+
+    private bool isEnd = false;
+
+    private int score;
 
     private int[] scoreNum;
     private int[] scoreBlock;
@@ -75,13 +81,20 @@ public class Main : MonoBehaviour
     {
         nowTime += moveSpan;
 
-        if(beatCount>scoreNum.Length) return;
+        if (beatCount >= scoreNum.Length)
+        {
+            Debug.Log("èIóπ");
+            isEnd = true;
+            score = Zone.gameObject.GetComponent<Zone>().score;
+            Debug.Log(score);
+            return;
+        }
 
 	    beatNum = (int)((nowTime) * BPM / 60 * LPB);
     }
 
     void NotesIns(){
-        Debug.Log(beatNum + ", " + nowTime);
+        //Debug.Log(beatNum + ", " + nowTime);
 
         GetScoreTime();
 
@@ -132,7 +145,10 @@ public class Main : MonoBehaviour
 
     void FixedUpdate()
     {
-        NotesIns();
+        if(isEnd == false)
+        {
+            NotesIns();
+        }
     }
 
     // Update is called once per frame

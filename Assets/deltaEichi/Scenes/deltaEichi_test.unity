@@ -1713,6 +1713,7 @@ MonoBehaviour:
   NotesA: {fileID: 1613541052792763724, guid: 73e6aa3bc17245645869dc9dad256bb4, type: 3}
   NotesB: {fileID: 9191887565912527346, guid: 2ce4e80d5933eaa4c87b2416414ae017, type: 3}
   NotesEX: {fileID: 4992849072476720144, guid: 6f93678214682424a84369a5f2d87c02, type: 3}
+  Zone: {fileID: 1510370952}
 --- !u!82 &1425896317
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1723,9 +1724,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 70d7cbc3428ed8f44810ff09ed162f2a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a67f5d0619c4a874bbbdfe472c72ba4f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.443
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1956,6 +1957,9 @@ MonoBehaviour:
   boolIsNotesAStay: 0
   boolIsNotesBStay: 0
   boolIsNotesEXStay: 0
+  notesPerfect: 0
+  notesGreat: 0
+  notesGood: 0
   intAinA: 0
   intAinB: 0
   intBinA: 0
@@ -1963,6 +1967,7 @@ MonoBehaviour:
   miss: 0
   intCountEX: 0
   col: {fileID: 0}
+  score: 0
 --- !u!82 &1510370958
 AudioSource:
   m_ObjectHideFlags: 0
