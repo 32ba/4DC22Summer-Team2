@@ -109,7 +109,11 @@ public class APIManager : SingletonMonoBehaviour<APIManager>
         }
         var reqJson = SignupRequest.ToJson(json);
         var req = await _postJsonRequest(APIEndpoints.UserSignup, reqJson);
-        if (req.result != UnityWebRequest.Result.Success || req.responseCode != 200) return false;
+        if (req.result != UnityWebRequest.Result.Success || req.responseCode != 200)
+        {
+            req.Dispose();
+            return false;
+        }
         
         var res = SignupResponse.FromJson(req.downloadHandler.text);
         var userInfo = new UserInfo
@@ -121,6 +125,7 @@ public class APIManager : SingletonMonoBehaviour<APIManager>
             };
         var dbUserInfo = DBManager.Instance.DB.GetCollection<UserInfo>("UserInfo");
         dbUserInfo.Update(userInfo);
+        req.Dispose();
         return true;
     }
 
@@ -128,14 +133,22 @@ public class APIManager : SingletonMonoBehaviour<APIManager>
     {
         var accesstoken = GetAccessToken(DBManager.Instance.DB);
         var req = await _postJsonRequest(APIEndpoints.Ranking, SendScoreRequest.ToJson(request), accesstoken);
-        return req.result == UnityWebRequest.Result.Success && req.responseCode == 200;
+        if (req.result == UnityWebRequest.Result.Success && req.responseCode == 200)
+        {
+            req.Dispose();
+            return true;
+        }
+        req.Dispose();
+        return false;
     }
 
     public static async Task<GetRankingResponse> GetRanking(GetRankingRequest request)
     {
         var queryParams = $"?song_uuid={request.SongUuid}&ranking_type={request.RankingType}";
         var req = await _getJsonRequest(APIEndpoints.Ranking, queryParams);
-        return GetRankingResponse.FromJson(req.downloadHandler.text);
+        var res = GetRankingResponse.FromJson(req.downloadHandler.text);
+        req.Dispose();
+        return res;
     }
 
     private static async Task<UnityWebRequest> _getJsonRequest(string url, string queryParams = null, string auth = null)
@@ -176,7 +189,6 @@ public class APIManager : SingletonMonoBehaviour<APIManager>
         dbUserInfo.Insert(userInfo);
         Debug.Log(userInfo.Guid);
         return userInfo.Guid;
-
     }
 
     private static string GetAccessToken(ILiteDatabase db)

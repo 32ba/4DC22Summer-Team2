@@ -16,7 +16,7 @@ public class ResultUIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI highScoreText;
     //[SerializeField] private GetRankingResponse _ranking;
 
-    private async void Awake()
+    private async void Start()
     {
         var scoreObject = new ScoreGetter.ScoreClass()
         {
@@ -45,10 +45,7 @@ public class ResultUIManager : MonoBehaviour
             scoreboardObj.transform.Find("NameText").GetComponent<TextMeshProUGUI>().text = rank.name;
             scoreboardObj.transform.Find("ScoreText").GetComponent<TextMeshProUGUI>().text = rank.score.ToString();
         }
-    }
 
-    private void Start()
-    {
         scoreText.text = ScoreGetter.Instance.score.ToString();
         var highScore = GetHighScore(ScoreGetter.Instance.songUuid);
         if (highScore < ScoreGetter.Instance.score)
@@ -56,8 +53,7 @@ public class ResultUIManager : MonoBehaviour
             SetHighScore(ScoreGetter.Instance.songUuid, ScoreGetter.Instance.score);
             highScore = ScoreGetter.Instance.score;
         }
-
-        highScoreText.text = "ハイスコア : " + highScore.ToString();
+        highScoreText.text = "ハイスコア : " + highScore;
     }
 
     public void OnClickTitleButton()
