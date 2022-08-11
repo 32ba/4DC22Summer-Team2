@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d7ed1aa0a906c294e9f49b052098c411
+guid: 4a7e540ea763f64488335dfe1b560166
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tyaba_button
+      name: result_ui_icon
       rect:
         serializedVersion: 2
-        x: 197
-        y: 420
-        width: 613
-        height: 165
+        x: 315
+        y: 765
+        width: 301
+        height: 207
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +118,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c4617cddd66f9444ab26065ce4474a4
-      internalID: -946914936
+      spriteID: 1108987c6447ca042a12b3270f99f9bc
+      internalID: 1404427817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: result_ui_scorepanel
+      rect:
+        serializedVersion: 2
+        x: 2118
+        y: 138
+        width: 1797
+        height: 839
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d04785b5864e9dd4f9cb2a3481d50b83
+      internalID: -710760910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: result_ui_rankpanel
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 376
+        width: 1656
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14b02454031a638499220ba7c68fb6d6
+      internalID: 1843528108
       vertices: []
       indices: 
       edges: []
@@ -135,7 +177,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tyaba_button: -946914936
+      result_ui_icon: 1404427817
+      result_ui_rankpanel: 1843528108
+      result_ui_scorepanel: -710760910
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
