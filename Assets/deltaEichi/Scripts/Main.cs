@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour
 {
     [SerializeField] GameObject NotesA;
     [SerializeField] GameObject NotesB;
     [SerializeField] GameObject NotesEX;
+    [SerializeField] GameObject Zone;
 
-    private AudioSource source;
+    private AudioSource[] sources;
 
     [Serializable] public class InputJson
     {
@@ -18,6 +20,7 @@ public class Main : MonoBehaviour
         public int LPB;
         public string music;
         public Notes[] chart;
+        public string uuid;
     }
 
     [Serializable] public class Notes
@@ -36,6 +39,11 @@ public class Main : MonoBehaviour
     private int BPM;
     private int LPB;
 
+    private bool isEnd = false;
+
+    private int score;
+    private string songUuid;
+
     private int[] scoreNum;
     private int[] scoreBlock;
     private int[] scoreDirection;
@@ -46,7 +54,7 @@ public class Main : MonoBehaviour
 
     void Awake()
     {
-        source = gameObject.GetComponent<AudioSource>();
+        sources = gameObject.GetComponents<AudioSource>();
         string path = Application.dataPath + "/deltaEichi/jsons/test.json";
         using(var fs = new StreamReader(path, System.Text.Encoding.GetEncoding("UTF-8")))
         {
@@ -54,6 +62,7 @@ public class Main : MonoBehaviour
             Debug.Log(result);
             InputJson inputJson = JsonUtility.FromJson<InputJson>(result);
             Debug.Log(inputJson.BPM);
+            songUuid = inputJson.uuid;
             BPM = inputJson.BPM;
             LPB = inputJson.LPB;
             scoreNum = new int[inputJson.chart.Length];
@@ -75,13 +84,20 @@ public class Main : MonoBehaviour
     {
         nowTime += moveSpan;
 
-        if(beatCount>scoreNum.Length) return;
+        if (beatCount >= scoreNum.Length)
+        {
+            Debug.Log("end");
+            isEnd = true;
+            score = Zone.gameObject.GetComponent<Zone>().score;
+            Debug.Log(score);
+            return;
+        }
 
 	    beatNum = (int)((nowTime) * BPM / 60 * LPB);
     }
 
     void NotesIns(){
-        Debug.Log(beatNum + ", " + nowTime);
+        //Debug.Log(beatNum + ", " + nowTime);
 
         GetScoreTime();
 
@@ -109,7 +125,7 @@ public class Main : MonoBehaviour
 
             if (scoreBlock[beatCount]==0)
             {
-                source.Play();
+                sources[0].Play();
             }
 
             if(scoreBlock[beatCount]==1){
@@ -118,6 +134,11 @@ public class Main : MonoBehaviour
 
             if(scoreBlock[beatCount]==2){ 
                 Instantiate(NotesB, new Vector3(10f, v3, 0f), Quaternion.identity);
+            }
+
+            if(scoreBlock[beatCount] == 4)
+            {
+                sources[1].Play();
             }
 
             beatCount++;
@@ -132,11 +153,32 @@ public class Main : MonoBehaviour
 
     void FixedUpdate()
     {
-        NotesIns();
+        if(isEnd == false)
+        {
+            NotesIns();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+    }
+
+    private void TrasitionToResultScene() //リザルトへ遷移する際はこれを呼ぶ
+    {
+        SceneManager.sceneLoaded += SendScoreToResult;
+        SceneManager.LoadScene("32ba/Scenes/Result");
+    }
+
+    private void SendScoreToResult(Scene next, LoadSceneMode mode)
+    {
+        var score = new ScoreGetter.ScoreClass()
+        {
+            Score = this.score,
+            SongUuid = songUuid
+        };
+        var gameManager = GameObject.FindWithTag("ScoreGetter").GetComponent<ScoreGetter>();
+        gameManager.SetScore(score);
+        SceneManager.sceneLoaded -= SendScoreToResult;
     }
 }
