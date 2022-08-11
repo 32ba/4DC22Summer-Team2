@@ -15,7 +15,6 @@
 
         {"time": 16, "direction": 1, "type": 0},
 
-
         {"time": 20, "direction": 1, "type": 1},
         {"time": 22, "direction": 1, "type": 1},
         {"time": 24, "direction": 1, "type": 1},
@@ -39,6 +38,486 @@
         {"time": 60, "direction": 2, "type": 1},
         {"time": 62, "direction": 0, "type": 1},
         {"time": 64, "direction": 1, "type": 1},
-        {"time": 68, "direction": 2, "type": 1}
+
+        {"time": 68, "direction": 2, "type": 1},
+        {"time": 70, "direction": 0, "type": 2},
+        {"time": 72, "direction": 1, "type": 1},
+        {"time": 74, "direction": 2, "type": 1},
+        {"time": 76, "direction": 0, "type": 2},
+        {"time": 78, "direction": 1, "type": 2},
+        {"time": 80, "direction": 2, "type": 1},
+
+
+        {"time": 84, "direction": 1, "type": 1},
+
+        {"time": 86, "direction": 1, "type": 1},
+        {"time": 87, "direction": 1, "type": 1},
+        {"time": 88, "direction": 1, "type": 2},
+
+        {"time": 90, "direction": 1, "type": 2},
+        {"time": 91, "direction": 1, "type": 2},
+        {"time": 92, "direction": 1, "type": 1},
+
+        {"time": 94, "direction": 1, "type": 1},
+        {"time": 95, "direction": 1, "type": 1},
+        {"time": 96, "direction": 1, "type": 1},
+
+        {"time": 98, "direction": 0, "type": 1},
+        {"time": 99, "direction": 1, "type": 1},
+        {"time": 100, "direction": 2, "type": 2},
+        {"time": 101, "direction": 1, "type": 1},
+        {"time": 102, "direction": 0, "type": 1},
+        {"time": 103, "direction": 1, "type": 2},
+        {"time": 104, "direction": 0, "type": 1},
+
+        {"time": 106, "direction": 2, "type": 2},
+        {"time": 107, "direction": 1, "type": 1},
+        {"time": 108, "direction": 0, "type": 2},
+        {"time": 109, "direction": 1, "type": 1},
+        {"time": 110, "direction": 2, "type": 2},
+        {"time": 111, "direction": 1, "type": 2},
+        {"time": 112, "direction": 2, "type": 1},
+
+        {"time": 114, "direction": 1, "type": 2},
+        {"time": 115, "direction": 1, "type": 2},
+        {"time": 116, "direction": 1, "type": 1},
+        {"time": 118, "direction": 0, "type": 2},
+        {"time": 119, "direction": 1, "type": 2},
+        {"time": 120, "direction": 2, "type": 2},
+        {"time": 121, "direction": 0, "type": 1},
+
+        {"time": 124, "direction": 1, "type": 2},
+        {"time": 125, "direction": 1, "type": 2},
+        {"time": 126, "direction": 1, "type": 1},
+        {"time": 128, "direction": 0, "type": 2},
+        {"time": 129, "direction": 1, "type": 2},
+        {"time": 130, "direction": 2, "type": 2},
+        {"time": 131, "direction": 0, "type": 1},
+
+        {"time": 134, "direction": 2, "type": 2},
+        {"time": 135, "direction": 2, "type": 1},
+
+        {"time": 139, "direction": 1, "type": 2},
+        {"time": 141, "direction": 0, "type": 2},
+        {"time": 142, "direction": 1, "type": 1},
+        {"time": 143, "direction": 2, "type": 2},
+
+
+
+        {"time": 146, "direction": 1, "type": 1},
+
+        {"time": 150, "direction": 0, "type": 2},
+        {"time": 151, "direction": 1, "type": 1},
+
+        {"time": 154, "direction": 2, "type": 2},
+        {"time": 155, "direction": 1, "type": 1},
+
+        {"time": 158, "direction": 0, "type": 2},
+        {"time": 159, "direction": 1, "type": 1},
+
+        {"time": 162, "direction": 2, "type": 2},
+        {"time": 163, "direction": 1, "type": 1},
+
+        {"time": 166, "direction": 0, "type": 1},
+        {"time": 167, "direction": 2, "type": 2},
+
+        {"time": 170, "direction": 0, "type": 1},
+        {"time": 171, "direction": 2, "type": 2},
+
+        {"time": 174, "direction": 0, "type": 1},
+        {"time": 175, "direction": 2, "type": 2},
+
+        {"time": 178, "direction": 0, "type": 1},
+        {"time": 179, "direction": 2, "type": 2},
+
+        {"time": 181, "direction": 0, "type": 1},
+        {"time": 182, "direction": 1, "type": 2},
+        {"time": 183, "direction": 2, "type": 1},
+
+        {"time": 185, "direction": 2, "type": 2},
+        {"time": 186, "direction": 1, "type": 1},
+        {"time": 187, "direction": 0, "type": 2},
+
+        {"time": 189, "direction": 0, "type": 1},
+        {"time": 190, "direction": 1, "type": 2},
+        {"time": 191, "direction": 2, "type": 1},
+
+        {"time": 193, "direction": 2, "type": 2},
+        {"time": 194, "direction": 1, "type": 1},
+        {"time": 195, "direction": 0, "type": 2},
+
+        {"time": 198, "direction": 2, "type": 2},
+        {"time": 200, "direction": 1, "type": 1},
+        {"time": 201, "direction": 0, "type": 2},
+        {"time": 202, "direction": 0, "type": 2},
+
+        {"time": 204, "direction": 2, "type": 2},
+        {"time": 206, "direction": 1, "type": 1},
+        {"time": 207, "direction": 0, "type": 2},
+        {"time": 208, "direction": 0, "type": 2},
+
+        {"time": 212, "direction": 2, "type": 2},
+        {"time": 213, "direction": 0, "type": 2},
+        {"time": 215, "direction": 0, "type": 2},
+        {"time": 216, "direction": 0, "type": 2},
+
+        {"time": 220, "direction": 2, "type": 2},
+        {"time": 221, "direction": 0, "type": 2},
+        {"time": 223, "direction": 0, "type": 2},
+        {"time": 224, "direction": 0, "type": 2},
+
+        {"time": 228, "direction": 2, "type": 2},
+        {"time": 229, "direction": 0, "type": 2},
+        {"time": 230, "direction": 0, "type": 2},
+        {"time": 232, "direction": 0, "type": 2},
+
+        {"time": 236, "direction": 2, "type": 2},
+        {"time": 237, "direction": 0, "type": 2},
+        {"time": 238, "direction": 0, "type": 2},
+        {"time": 240, "direction": 0, "type": 2},
+
+        {"time": 242, "direction": 0, "type": 2},
+        {"time": 243, "direction": 0, "type": 2},
+        {"time": 245, "direction": 0, "type": 2},
+        {"time": 246, "direction": 0, "type": 2},
+        {"time": 247, "direction": 0, "type": 2},
+        {"time": 248, "direction": 0, "type": 2},
+
+        {"time": 250, "direction": 0, "type": 2},
+        {"time": 251, "direction": 0, "type": 2},
+        {"time": 253, "direction": 0, "type": 2},
+        {"time": 254, "direction": 0, "type": 2},
+        {"time": 255, "direction": 0, "type": 2},
+        {"time": 256, "direction": 0, "type": 2},
+
+        {"time": 258, "direction": 0, "type": 2},
+        {"time": 259, "direction": 0, "type": 2},
+        {"time": 260, "direction": 0, "type": 2},
+        {"time": 262, "direction": 0, "type": 2},
+        {"time": 263, "direction": 0, "type": 2},
+
+        {"time": 265, "direction": 0, "type": 2},
+        {"time": 266, "direction": 0, "type": 2},
+        {"time": 267, "direction": 0, "type": 2},
+        {"time": 269, "direction": 0, "type": 2},
+        {"time": 270, "direction": 0, "type": 2},
+
+        {"time": 272, "direction": 0, "type": 2},
+        {"time": 273, "direction": 0, "type": 2},
+        {"time": 274, "direction": 0, "type": 2},
+        {"time": 275, "direction": 0, "type": 2},
+
+        {"time": 277, "direction": 0, "type": 2},
+        {"time": 278, "direction": 0, "type": 2},
+        {"time": 279, "direction": 0, "type": 2},
+
+        {"time": 281, "direction": 0, "type": 2},
+        {"time": 282, "direction": 0, "type": 2},
+        {"time": 283, "direction": 0, "type": 2},
+        {"time": 284, "direction": 0, "type": 2},
+
+        {"time": 286, "direction": 0, "type": 2},
+        {"time": 287, "direction": 0, "type": 2},
+        {"time": 288, "direction": 0, "type": 2},
+
+        {"time": 290, "direction": 0, "type": 2},
+
+        {"time": 292, "direction": 0, "type": 2},
+        {"time": 293, "direction": 0, "type": 2},
+
+        {"time": 295, "direction": 0, "type": 2},
+        {"time": 296, "direction": 0, "type": 2},
+        {"time": 297, "direction": 0, "type": 2},
+
+        {"time": 299, "direction": 0, "type": 2},
+        {"time": 300, "direction": 0, "type": 2},
+        {"time": 301, "direction": 0, "type": 2},
+        {"time": 302, "direction": 0, "type": 2},
+
+        {"time": 304, "direction": 0, "type": 2},
+        {"time": 305, "direction": 0, "type": 2},
+
+        {"time": 307, "direction": 0, "type": 2},
+
+        {"time": 309, "direction": 0, "type": 2},
+        {"time": 310, "direction": 0, "type": 2},
+
+        {"time": 312, "direction": 0, "type": 2},
+        {"time": 313, "direction": 0, "type": 2},
+        {"time": 314, "direction": 0, "type": 2},
+
+        {"time": 316, "direction": 0, "type": 2},
+        {"time": 317, "direction": 0, "type": 2},
+        {"time": 318, "direction": 0, "type": 2},
+        {"time": 319, "direction": 0, "type": 2},
+
+        {"time": 321, "direction": 0, "type": 2},
+        {"time": 322, "direction": 0, "type": 2},
+
+        {"time": 324, "direction": 0, "type": 2},
+
+        {"time": 328, "direction": 0, "type": 2},
+        {"time": 329, "direction": 0, "type": 2},
+        {"time": 330, "direction": 0, "type": 2},
+        
+        {"time": 332, "direction": 0, "type": 2},
+        {"time": 333, "direction": 0, "type": 2},
+        {"time": 334, "direction": 0, "type": 2},
+        {"time": 335, "direction": 0, "type": 2},
+
+        {"time": 337, "direction": 0, "type": 2},
+        {"time": 338, "direction": 0, "type": 2},
+
+        {"time": 340, "direction": 0, "type": 2},
+        {"time": 341, "direction": 0, "type": 2},
+        {"time": 342, "direction": 0, "type": 2},
+        
+        {"time": 344, "direction": 0, "type": 2},
+        {"time": 345, "direction": 0, "type": 2},
+
+        {"time": 347, "direction": 0, "type": 2},
+        {"time": 348, "direction": 0, "type": 2},
+
+        {"time": 350, "direction": 0, "type": 2},
+        {"time": 351, "direction": 0, "type": 2},
+        {"time": 352, "direction": 0, "type": 2},
+        {"time": 353, "direction": 0, "type": 2},
+        {"time": 354, "direction": 0, "type": 2},
+
+        {"time": 356, "direction": 0, "type": 2},
+        {"time": 357, "direction": 0, "type": 2},
+
+        {"time": 359, "direction": 0, "type": 2},
+        {"time": 360, "direction": 0, "type": 2},
+        
+        {"time": 362, "direction": 0, "type": 2},
+        {"time": 363, "direction": 0, "type": 2},
+        {"time": 364, "direction": 0, "type": 2},
+        {"time": 365, "direction": 0, "type": 2},
+        {"time": 366, "direction": 0, "type": 2},
+        {"time": 367, "direction": 0, "type": 2},
+
+        {"time": 369, "direction": 0, "type": 2},
+        {"time": 370, "direction": 0, "type": 2},
+
+        {"time": 372, "direction": 0, "type": 2},
+        {"time": 374, "direction": 0, "type": 2},
+        {"time": 375, "direction": 0, "type": 2},
+
+        {"time": 376, "direction": 0, "type": 2},
+
+        {"time": 380, "direction": 0, "type": 2},
+        {"time": 381, "direction": 0, "type": 2},
+        {"time": 382, "direction": 0, "type": 2},
+        {"time": 383, "direction": 0, "type": 2},
+
+        {"time": 385, "direction": 0, "type": 2},
+        {"time": 387, "direction": 0, "type": 2},
+        {"time": 389, "direction": 0, "type": 2},
+        {"time": 391, "direction": 0, "type": 2},
+
+
+        {"time": 395, "direction": 0, "type": 2},
+        {"time": 396, "direction": 0, "type": 2},
+
+        {"time": 398, "direction": 0, "type": 2},
+        {"time": 399, "direction": 0, "type": 2},
+
+        {"time": 401, "direction": 0, "type": 2},
+        {"time": 402, "direction": 0, "type": 2},
+        {"time": 403, "direction": 0, "type": 2},
+        {"time": 404, "direction": 0, "type": 2},
+        {"time": 405, "direction": 0, "type": 2},
+
+        {"time": 407, "direction": 0, "type": 2},
+        {"time": 408, "direction": 0, "type": 2},
+
+        {"time": 410, "direction": 0, "type": 2},
+        {"time": 411, "direction": 0, "type": 2},
+        
+        {"time": 413, "direction": 0, "type": 2},
+        {"time": 414, "direction": 0, "type": 2},
+        {"time": 415, "direction": 0, "type": 2},
+        {"time": 416, "direction": 0, "type": 2},
+        {"time": 417, "direction": 0, "type": 2},
+        {"time": 418, "direction": 0, "type": 2},
+
+        {"time": 420, "direction": 0, "type": 2},
+        {"time": 421, "direction": 0, "type": 2},
+
+        {"time": 423, "direction": 0, "type": 2},
+        {"time": 424, "direction": 0, "type": 2},
+        {"time": 425, "direction": 0, "type": 2},
+
+        {"time": 427, "direction": 0, "type": 2},
+
+        {"time": 429, "direction": 0, "type": 2},
+        {"time": 430, "direction": 0, "type": 2},
+        {"time": 431, "direction": 0, "type": 2},
+        {"time": 432, "direction": 0, "type": 2},
+
+        {"time": 433, "direction": 0, "type": 2},
+        {"time": 434, "direction": 0, "type": 2},
+        {"time": 435, "direction": 0, "type": 2},
+        {"time": 436, "direction": 0, "type": 2},
+
+        {"time": 440, "direction": 0, "type": 2},
+
+        {"time": 442, "direction": 0, "type": 2},
+        {"time": 443, "direction": 0, "type": 2},
+
+        {"time": 445, "direction": 0, "type": 2},
+
+        {"time": 447, "direction": 0, "type": 2},
+        {"time": 448, "direction": 0, "type": 2},
+
+        {"time": 450, "direction": 0, "type": 2},
+        {"time": 451, "direction": 0, "type": 2},
+
+        {"time": 453, "direction": 0, "type": 2},
+        {"time": 454, "direction": 0, "type": 2},
+        {"time": 455, "direction": 0, "type": 2},
+        {"time": 456, "direction": 0, "type": 2},
+        {"time": 457, "direction": 0, "type": 2},
+
+        {"time": 459, "direction": 0, "type": 2},
+        {"time": 460, "direction": 0, "type": 2},
+        
+        {"time": 464, "direction": 0, "type": 2},
+        {"time": 465, "direction": 0, "type": 2},
+        {"time": 466, "direction": 0, "type": 2},
+        
+        {"time": 468, "direction": 0, "type": 2},
+        {"time": 469, "direction": 0, "type": 2},
+        {"time": 470, "direction": 0, "type": 2},
+        {"time": 471, "direction": 0, "type": 2},
+        {"time": 472, "direction": 0, "type": 2},
+        {"time": 473, "direction": 0, "type": 2},
+
+        {"time": 475, "direction": 0, "type": 2},
+        {"time": 476, "direction": 0, "type": 2},
+        {"time": 477, "direction": 0, "type": 2},
+        
+        {"time": 479, "direction": 0, "type": 2},
+        {"time": 480, "direction": 0, "type": 2},
+        {"time": 481, "direction": 0, "type": 2},
+
+        
+        {"time": 483, "direction": 0, "type": 2},
+        {"time": 484, "direction": 0, "type": 2},
+
+
+        {"time": 486, "direction": 0, "type": 2},
+
+        {"time": 488, "direction": 0, "type": 2},
+        {"time": 489, "direction": 0, "type": 2},
+        {"time": 490, "direction": 0, "type": 2},
+        {"time": 491, "direction": 0, "type": 2},
+
+        {"time": 493, "direction": 0, "type": 2},
+        {"time": 494, "direction": 0, "type": 2},
+
+        {"time": 496, "direction": 0, "type": 2},
+        {"time": 497, "direction": 0, "type": 2},
+
+        {"time": 499, "direction": 0, "type": 2},
+        {"time": 500, "direction": 0, "type": 2},
+
+        {"time": 502, "direction": 0, "type": 2},
+        {"time": 503, "direction": 0, "type": 2},
+        {"time": 504, "direction": 0, "type": 2},
+
+        {"time": 506, "direction": 0, "type": 2},
+        {"time": 507, "direction": 0, "type": 2},
+
+        {"time": 509, "direction": 0, "type": 2},
+        {"time": 510, "direction": 0, "type": 2},
+
+
+        {"time": 514, "direction": 0, "type": 2},
+
+        {"time": 516, "direction": 0, "type": 2},
+        {"time": 517, "direction": 0, "type": 2},
+        {"time": 518, "direction": 0, "type": 2},
+
+        {"time": 520, "direction": 0, "type": 2},
+        {"time": 521, "direction": 0, "type": 2},
+        {"time": 522, "direction": 0, "type": 2},
+        {"time": 523, "direction": 0, "type": 2},
+
+        {"time": 525, "direction": 0, "type": 2},
+        {"time": 526, "direction": 0, "type": 2},
+        {"time": 527, "direction": 0, "type": 2},
+
+        {"time": 529, "direction": 0, "type": 2},
+        {"time": 530, "direction": 0, "type": 2},
+
+        {"time": 532, "direction": 0, "type": 2},
+
+        {"time": 534, "direction": 0, "type": 2},
+
+        {"time": 536, "direction": 0, "type": 2},
+        
+        {"time": 538, "direction": 0, "type": 2},
+
+        {"time": 540, "direction": 0, "type": 2},
+
+        {"time": 542, "direction": 0, "type": 2},
+
+        {"time": 544, "direction": 0, "type": 2},
+
+        {"time": 546, "direction": 0, "type": 2},
+
+        {"time": 548, "direction": 0, "type": 2},
+
+        {"time": 550, "direction": 0, "type": 2},
+
+        {"time": 552, "direction": 0, "type": 2},
+
+        {"time": 554, "direction": 0, "type": 2},
+
+        {"time": 556, "direction": 0, "type": 2},
+
+        {"time": 558, "direction": 0, "type": 2},
+
+        {"time": 560, "direction": 0, "type": 2},
+
+        {"time": 562, "direction": 0, "type": 2},
+        {"time": 563, "direction": 0, "type": 2},
+        {"time": 564, "direction": 0, "type": 2},
+        
+        {"time": 566, "direction": 0, "type": 2},
+        {"time": 567, "direction": 0, "type": 2},
+        {"time": 568, "direction": 0, "type": 2},
+        {"time": 569, "direction": 0, "type": 2},
+
+        {"time": 571, "direction": 0, "type": 2},
+        {"time": 572, "direction": 0, "type": 2},
+        {"time": 573, "direction": 0, "type": 2},
+        {"time": 574, "direction": 0, "type": 2},
+
+
+        {"time": 576, "direction": 0, "type": 2},
+
+        {"time": 578, "direction": 0, "type": 2},
+        {"time": 579, "direction": 0, "type": 2},
+
+        {"time": 581, "direction": 0, "type": 2},
+        {"time": 582, "direction": 0, "type": 2},
+
+        {"time": 584, "direction": 0, "type": 2},
+
+
+
+        {"time": 588, "direction": 0, "type": 2},
+
+        {"time": 590, "direction": 0, "type": 2},
+        {"time": 591, "direction": 0, "type": 2},
+
+        {"time": 593, "direction": 0, "type": 2},
+        {"time": 594, "direction": 0, "type": 2},
+
+        {"time": 596, "direction": 0, "type": 2}
+
     ]
 }

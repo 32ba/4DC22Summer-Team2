@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using System.Linq;
 using UnityEngine.SceneManagement;
+
+class Song
+{
+    public string Uuid { get; set; }
+    public string Path { get; set; }
+}
 
 public class Main : MonoBehaviour
 {
@@ -29,6 +36,8 @@ public class Main : MonoBehaviour
         public int direction;
         public int type;
     }
+    [SerializeField] private GameObject gameOverPanelObject;
+    
 
     private float moveSpan = 0.01f;
     private float nowTime = 0.0f;
@@ -42,12 +51,18 @@ public class Main : MonoBehaviour
     private bool isEnd = false;
 
     private int score;
-    private string songUuid;
+    public string songUuid; // TODO ビルド時は必ず代入をやめる
+
+    private Dictionary<string, string> _songs = new()
+    {
+        {"0f1b605e-53e1-45ca-92a8-8dc97a63071e", "/deltaEichi/jsons/test.json"}, //{UUID, PATH}
+    };
 
     private int[] scoreNum;
     private int[] scoreBlock;
     private int[] scoreDirection;
-
+    
+    
     void Start() 
     {
     }
@@ -55,7 +70,8 @@ public class Main : MonoBehaviour
     void Awake()
     {
         sources = gameObject.GetComponents<AudioSource>();
-        string path = Application.dataPath + "/deltaEichi/jsons/test.json";
+        var path = _songs.Where(s => s.Key == songUuid).Aggregate(Application.dataPath, (current, s) => current + s.Value);//自動変換でキモいコードになってしまった
+        //string path = Application.dataPath + "/deltaEichi/jsons/test.json";
         using(var fs = new StreamReader(path, System.Text.Encoding.GetEncoding("UTF-8")))
         {
             string result = fs.ReadToEnd();
@@ -76,7 +92,7 @@ public class Main : MonoBehaviour
             }
         }
 
-	//string inputString = Resources.Load<TextAsset>("").ToString();
+        //string inputString = Resources.Load<TextAsset>("").ToString();
         //InvokeRepeating("NotesIns", 0.0f, moveSpan);
     }
 
@@ -90,6 +106,7 @@ public class Main : MonoBehaviour
             isEnd = true;
             score = Zone.gameObject.GetComponent<Zone>().score;
             Debug.Log(score);
+            TrasitionToResultScene();
             return;
         }
 
@@ -164,6 +181,11 @@ public class Main : MonoBehaviour
     {
     }
 
+    private void GameOver() //ゲームオーバー時に呼ぶ
+    {
+        gameOverPanelObject.SetActive(true); //ToDo これの前に音声停止処理を呼ぶ
+    }
+
     private void TrasitionToResultScene() //リザルトへ遷移する際はこれを呼ぶ
     {
         SceneManager.sceneLoaded += SendScoreToResult;
@@ -177,7 +199,7 @@ public class Main : MonoBehaviour
             Score = this.score,
             SongUuid = songUuid
         };
-        var gameManager = GameObject.FindWithTag("ScoreGetter").GetComponent<ScoreGetter>();
+        var gameManager = GameObject.FindWithTag("GameController").GetComponent<ScoreGetter>();
         gameManager.SetScore(score);
         SceneManager.sceneLoaded -= SendScoreToResult;
     }
