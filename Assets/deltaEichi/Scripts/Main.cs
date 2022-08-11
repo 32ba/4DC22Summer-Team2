@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class Main : MonoBehaviour
     private bool isEnd = false;
 
     private int score;
+    private string songUuid;
 
     private int[] scoreNum;
     private int[] scoreBlock;
@@ -60,6 +62,7 @@ public class Main : MonoBehaviour
             Debug.Log(result);
             InputJson inputJson = JsonUtility.FromJson<InputJson>(result);
             Debug.Log(inputJson.BPM);
+            songUuid = inputJson.uuid;
             BPM = inputJson.BPM;
             LPB = inputJson.LPB;
             scoreNum = new int[inputJson.chart.Length];
@@ -83,7 +86,7 @@ public class Main : MonoBehaviour
 
         if (beatCount >= scoreNum.Length)
         {
-            Debug.Log("�I��");
+            Debug.Log("�I��");
             isEnd = true;
             score = Zone.gameObject.GetComponent<Zone>().score;
             Debug.Log(score);
@@ -154,5 +157,23 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    private void TrasitionToResultScene() //リザルトへ遷移する際はこれを呼ぶ
+    {
+        SceneManager.sceneLoaded += SendScoreToResult;
+        SceneManager.LoadScene("32ba/Scenes/Result");
+    }
+
+    private void SendScoreToResult(Scene next, LoadSceneMode mode)
+    {
+        var score = new ScoreGetter.ScoreClass()
+        {
+            Score = this.score,
+            SongUuid = songUuid
+        };
+        var gameManager = GameObject.FindWithTag("ScoreGetter").GetComponent<ScoreGetter>();
+        gameManager.SetScore(score);
+        SceneManager.sceneLoaded -= SendScoreToResult;
     }
 }
