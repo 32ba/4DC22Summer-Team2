@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/shrimp/Scene/Start.unity
+    guid: 145f94a0fabc76741968a1ee2b488049
+  - enabled: 1
     path: Assets/shrimp/Scene/Select Mode.unity
     guid: 60d6874abf509a348af1a0c6a2c39a61
   - enabled: 1
