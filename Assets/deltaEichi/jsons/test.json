@@ -6,21 +6,22 @@
     "LPB": 1,
     "music": "夏空 4day2022s(2).ogg",
     "chart":[
-        {"time": 0, "direction": 1, "type": 0},
-        {"time": 1, "direction": 1, "type": 1},
-        {"time": 2, "direction": 1, "type": 1},
-        {"time": 3, "direction": 1, "type": 2},
+
+        
+        {"time": 3, "direction": 1, "type": 0},
 
         {"time": 5, "direction": 1, "type": 1},
-        {"time": 6, "direction": 1, "type": 1},
+        {"time": 6, "direction": 2, "type": 1},
         {"time": 7, "direction": 1, "type": 2},
 
         {"time": 9, "direction": 1, "type": 1},
-        {"time": 10, "direction": 1, "type": 2},
+        {"time": 10, "direction": 0, "type": 2},
         {"time": 11, "direction": 1, "type": 1},
-        {"time": 12, "direction": 1, "type": 2},
+        {"time": 12, "direction": 2, "type": 2},
         {"time": 13, "direction": 1, "type": 1},
-        {"time": 14, "direction": 1, "type": 2},
-        {"time": 15, "direction": 1, "type": 1}
+        {"time": 14, "direction": 0, "type": 2},
+        {"time": 15, "direction": 1, "type": 1},
+
+        {"time": 17, "direction": 1, "type": 3}
     ]
 }

@@ -28,6 +28,8 @@ public class Zone : MonoBehaviour
 
     public int miss = 0;
 
+    public int intCountEX = 0;
+
     public Collider2D col;
     void UIUpdate()
     {
@@ -53,105 +55,120 @@ public class Zone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //AÉLÅ[Ç™ì¸óÕÇ≥ÇÍÇΩÇ∆Ç´
         if (Input.GetKeyDown(KeyCode.V))
         {
-            //ÉmÅ[ÉcAÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
-            if (boolIsNotesAStay)
+            if (boolIsNotesEXStay)
             {
-                sources[0].Play();
-                boolIsNotesAStay = false;
-                Debug.Log("A!");
-                /*
-                Debug.Log(this.transform.position);
-                Debug.Log(col.transform.position);
-                */
-                NotesScript script = col.gameObject.GetComponent<NotesScript>();
-                script.boolActive = false;
-                Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
-                Destroy(col.gameObject);
-
-                intAinA++;
-                UIUpdate();
+                intCountEX++;
             }
-
-            //ÉmÅ[ÉcBÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
-            if (boolIsNotesBStay)
+            else
             {
-                sources[0].Play();
-                boolIsNotesAStay = false;
-                Debug.Log("NotA!");
-                /*
-                Debug.Log(this.transform.position);
-                Debug.Log(col.transform.position);
-                */
-                NotesScript script = col.gameObject.GetComponent<NotesScript>();
-                script.boolActive = false;
-                Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
-                Destroy(col.gameObject);
+                //ÉmÅ[ÉcAÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
+                if (boolIsNotesAStay)
+                {
+                    sources[0].Play();
+                    boolIsNotesAStay = false;
+                    Debug.Log("A!");
+                    /*
+                    Debug.Log(this.transform.position);
+                    Debug.Log(col.transform.position);
+                    */
+                    NotesScript script = col.gameObject.GetComponent<NotesScript>();
+                    script.boolActive = false;
+                    Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
+                    Destroy(col.gameObject);
 
-                intAinB++;
-                UIUpdate();
-            }
+                    intAinA++;
+                    UIUpdate();
+                }
 
-            if (boolIsNotesExStay)
-            {
-                sources[0].Play();
-                boolIsNotesAStay = false;
-                Debug.Log("NotA!");
-                /*
-                Debug.Log(this.transform.position);
-                Debug.Log(col.transform.position);
-                */
-                NotesScript script = col.gameObject.GetComponent<NotesScript>();
-                script.boolActive = false;
-                Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
-                Destroy(col.gameObject);
+                //ÉmÅ[ÉcBÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
+                if (boolIsNotesBStay)
+                {
+                    sources[1].Play();
+                    boolIsNotesAStay = false;
+                    Debug.Log("NotA!");
+                    /*
+                    Debug.Log(this.transform.position);
+                    Debug.Log(col.transform.position);
+                    */
+                    NotesScript script = col.gameObject.GetComponent<NotesScript>();
+                    script.boolActive = false;
+                    Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
+                    Destroy(col.gameObject);
 
-                intAinB++;
-                UIUpdate();
+                    intAinB++;
+                    UIUpdate();
+                }
+
+                if (boolIsNotesEXStay)
+                {
+                    sources[0].Play();
+                    boolIsNotesAStay = false;
+                    Debug.Log("NotA!");
+                    /*
+                    Debug.Log(this.transform.position);
+                    Debug.Log(col.transform.position);
+                    */
+                    NotesScript script = col.gameObject.GetComponent<NotesScript>();
+                    script.boolActive = false;
+                    Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
+                    Destroy(col.gameObject);
+
+                    intAinB++;
+                    UIUpdate();
+                }
             }
         }
 
         //BÉLÅ[Ç™ì¸óÕÇ≥ÇÍÇΩÇ∆Ç´
         if (Input.GetKeyDown(KeyCode.B))
         {
-            //ÉmÅ[ÉcBÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
-            if (boolIsNotesBStay)
+            if (boolIsNotesEXStay)
             {
-                sources[0].Play();
-                boolIsNotesBStay = false;
-                Debug.Log("B!");
-                /*
-                Debug.Log(this.transform.position);
-                Debug.Log(col.transform.position);
-                */
-                NotesScript script = col.gameObject.GetComponent<NotesScript>();
-                script.boolActive = false;
-                Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
-                Destroy(col.gameObject);
-
-                intBinB++;
-                UIUpdate();
+                intCountEX++;
             }
-
-            //ÉmÅ[ÉcAÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
-            if (boolIsNotesAStay)
+            else
             {
-                sources[0].Play();
-                boolIsNotesBStay = false;
-                Debug.Log("NotB!");
-                /*
-                Debug.Log(this.transform.position);
-                Debug.Log(col.transform.position);
-                */
-                NotesScript script = col.gameObject.GetComponent<NotesScript>();
-                script.boolActive = false;
-                Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
-                Destroy(col.gameObject);
+                //ÉmÅ[ÉcBÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
+                if (boolIsNotesBStay)
+                {
+                    sources[1].Play();
+                    boolIsNotesBStay = false;
+                    Debug.Log("B!");
+                    /*
+                    Debug.Log(this.transform.position);
+                    Debug.Log(col.transform.position);
+                    */
+                    NotesScript script = col.gameObject.GetComponent<NotesScript>();
+                    script.boolActive = false;
+                    Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
+                    Destroy(col.gameObject);
 
-                intBinA++;
-                UIUpdate();
+                    intBinB++;
+                    UIUpdate();
+                }
+
+                //ÉmÅ[ÉcAÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
+                if (boolIsNotesAStay)
+                {
+                    sources[0].Play();
+                    boolIsNotesBStay = false;
+                    Debug.Log("NotB!");
+                    /*
+                    Debug.Log(this.transform.position);
+                    Debug.Log(col.transform.position);
+                    */
+                    NotesScript script = col.gameObject.GetComponent<NotesScript>();
+                    script.boolActive = false;
+                    Debug.Log(Vector3.Distance(this.transform.position, col.transform.position));
+                    Destroy(col.gameObject);
+
+                    intBinA++;
+                    UIUpdate();
+                }
             }
         }
     }

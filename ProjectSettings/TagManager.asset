@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NotesA
   - NotesB
+  - NotesEX
   layers:
   - Default
   - TransparentFX

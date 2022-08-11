@@ -8,7 +8,9 @@ public class Main : MonoBehaviour
 {
     [SerializeField] GameObject NotesA;
     [SerializeField] GameObject NotesB;
+    [SerializeField] GameObject NotesEX;
 
+    private AudioSource source;
 
     [Serializable] public class InputJson
     {
@@ -44,6 +46,7 @@ public class Main : MonoBehaviour
 
     void Awake()
     {
+        source = gameObject.GetComponent<AudioSource>();
         string path = Application.dataPath + "/deltaEichi/jsons/test.json";
         using(var fs = new StreamReader(path, System.Text.Encoding.GetEncoding("UTF-8")))
         {
@@ -60,6 +63,7 @@ public class Main : MonoBehaviour
             {
                 scoreNum[i] = inputJson.chart[i].time;
                 scoreBlock[i] = inputJson.chart[i].type;
+                scoreDirection[i] = inputJson.chart[i].direction;
             }
         }
 
@@ -73,28 +77,47 @@ public class Main : MonoBehaviour
 
         if(beatCount>scoreNum.Length) return;
 
-	beatNum = (int)(nowTime * BPM / 60 * LPB);
+	    beatNum = (int)((nowTime) * BPM / 60 * LPB);
     }
 
     void NotesIns(){
-        //Debug.Log(beatNum + ", " + nowTime);
+        Debug.Log(beatNum + ", " + nowTime);
 
         GetScoreTime();
 
         if(beatCount < scoreNum.Length){
-            isBeat = (scoreNum[beatCount]==beatNum);
+            isBeat = (scoreNum[beatCount] == beatNum);
         }
 	
         if(isBeat){
-            if(scoreBlock[beatCount]==0){
+            float v3 = 0f;
+            if (scoreDirection[beatCount] == 0)
+            {
+                v3 = 5f;
+            }
+
+            if (scoreDirection[beatCount] == 1)
+            {
+                v3 = 0f;
+            }
+
+            if (scoreDirection[beatCount] == 2)
+            {
+                v3 = -5f;
+            }
+
+
+            if (scoreBlock[beatCount]==0)
+            {
+                source.Play();
             }
 
             if(scoreBlock[beatCount]==1){
-                Instantiate(NotesA, new Vector3(10.0f, 0.0f, 0.0f), Quaternion.identity);
+                Instantiate(NotesA, new Vector3(10f, v3, 0f), Quaternion.identity);
             }
 
             if(scoreBlock[beatCount]==2){ 
-                Instantiate(NotesB, new Vector3(10.0f, 5.0f, 0.0f), Quaternion.identity);
+                Instantiate(NotesB, new Vector3(10f, v3, 0f), Quaternion.identity);
             }
 
             beatCount++;
@@ -115,13 +138,5 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Instantiate(NotesA, new Vector3(6.0f, 0.0f, 0.0f), Quaternion.identity);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Instantiate(NotesB, new Vector3(6.0f, 0.0f, 0.0f), Quaternion.identity);
-        }
     }
 }
