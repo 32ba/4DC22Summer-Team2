@@ -15,7 +15,7 @@ internal static class APIEndpoints
     private const string BaseURL = "https://0cf2.api.32ba.net/api/v1";
     public const string UserSignup = BaseURL + "/user/signup";
     public static string UserUpdate = BaseURL + "/user/update";
-    public static string TokenUpdate = BaseURL + "/token/update";
+    public const string TokenRefresh = BaseURL + "/token/refresh";
     public const string Ranking = BaseURL + "/ranking";
 }
 
@@ -89,6 +89,25 @@ public class GetRankingResponse
     }
 } 
 
+[Serializable]
+public class TokenRefreshRequest
+{
+    [SerializeField] public string refresh_token;
+    public static string ToJson(TokenRefreshRequest model)
+    {
+        return JsonUtility.ToJson(model);
+    }
+}
+[Serializable]
+public class TokenRefreshResponse
+{
+    [SerializeField] public string access_token;
+    public static TokenRefreshResponse FromJson(string json)
+    {
+        return JsonUtility.FromJson<TokenRefreshResponse>(json);
+    }
+}
+
 public class APIManager : SingletonMonoBehaviour<APIManager>
 {
     private void Awake()
@@ -99,6 +118,18 @@ public class APIManager : SingletonMonoBehaviour<APIManager>
             return;
         }
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public async void Start()
+    {
+        if (GetAccessToken(DBManager.Instance.DB) == "")
+        {
+            await Signup();
+        }
+        else
+        {
+            TokenRefresh();
+        }
     }
 
     public static async Task<bool> Signup()
@@ -151,6 +182,20 @@ public class APIManager : SingletonMonoBehaviour<APIManager>
         return res;
     }
 
+    private static async void TokenRefresh()
+    {
+        var refreshToken = GetRefreshToken(DBManager.Instance.DB);
+        var request = new TokenRefreshRequest()
+        {
+            refresh_token = refreshToken
+        };
+        var req = await _postJsonRequest(APIEndpoints.TokenRefresh, TokenRefreshRequest.ToJson(request));
+        Debug.Log(req.downloadHandler.text);
+        var res = TokenRefreshResponse.FromJson(req.downloadHandler.text);
+        SetAccessToken(DBManager.Instance.DB, res.access_token);
+        req.Dispose();
+    }
+
     private static async Task<UnityWebRequest> _getJsonRequest(string url, string queryParams = null, string auth = null)
     {
         var getUrl = url;
@@ -198,10 +243,20 @@ public class APIManager : SingletonMonoBehaviour<APIManager>
         return userInfo != null ? userInfo.AccessToken : "";
     }
     
+    private static void SetAccessToken(ILiteDatabase db, string accessToken)
+    {
+        var dbUserInfo = db.GetCollection<UserInfo>("UserInfo");
+        var userInfo = dbUserInfo.FindOne(x => x.Id.Equals(1));
+        userInfo.AccessToken = accessToken;
+        dbUserInfo.Update(userInfo);
+    }
+    
     private static string GetRefreshToken(ILiteDatabase db)
     {
         var dbUserInfo = db.GetCollection<UserInfo>("UserInfo");
         var userInfo = dbUserInfo.FindOne(x => x.Id.Equals(1));
         return userInfo != null ? userInfo.RefreshToken : "";
     }
+    
+    
 }
