@@ -18,12 +18,12 @@ public class ResultUIManager : MonoBehaviour
 
     private async void Start()
     {
-        var scoreObject = new ScoreGetter.ScoreClass()
+        /*var scoreObject = new ScoreGetter.ScoreClass()
         {
             SongUuid = "2a695382-7aa6-4aad-bcc0-51913909802c", //TEST UUID
             Score = 12345678
         };
-        ScoreGetter.Instance.SetScore(scoreObject);
+        ScoreGetter.Instance.SetScore(scoreObject);*/
 
         var sendScoreRequest = new SendScoreRequest
         {

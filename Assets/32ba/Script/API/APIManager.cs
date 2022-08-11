@@ -101,6 +101,14 @@ public class APIManager : SingletonMonoBehaviour<APIManager>
         DontDestroyOnLoad(this.gameObject);
     }
 
+    public async void Start()
+    {
+        if (GetAccessToken(DBManager.Instance.DB) == "")
+        {
+            await Signup();
+        }
+    }
+
     public static async Task<bool> Signup()
     {
         var json = new SignupRequest();
