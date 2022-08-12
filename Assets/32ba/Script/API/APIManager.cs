@@ -14,7 +14,7 @@ internal static class APIEndpoints
 {
     private const string BaseURL = "https://0cf2.api.32ba.net/api/v1";
     public const string UserSignup = BaseURL + "/user/signup";
-    public static string UserUpdate = BaseURL + "/user/update";
+    public static string UserUpdateName = BaseURL + "/user/update/name";
     public const string TokenRefresh = BaseURL + "/token/refresh";
     public const string Ranking = BaseURL + "/ranking";
 }
@@ -98,6 +98,7 @@ public class TokenRefreshRequest
         return JsonUtility.ToJson(model);
     }
 }
+
 [Serializable]
 public class TokenRefreshResponse
 {
@@ -105,6 +106,16 @@ public class TokenRefreshResponse
     public static TokenRefreshResponse FromJson(string json)
     {
         return JsonUtility.FromJson<TokenRefreshResponse>(json);
+    }
+}
+
+[Serializable]
+public class UserNameUpdateRequest
+{
+    [SerializeField] public string name;
+    public static string ToJson(UserNameUpdateRequest model)
+    {
+        return JsonUtility.ToJson(model);
     }
 }
 
@@ -194,6 +205,23 @@ public class APIManager : SingletonMonoBehaviour<APIManager>
         var res = TokenRefreshResponse.FromJson(req.downloadHandler.text);
         SetAccessToken(DBManager.Instance.DB, res.access_token);
         req.Dispose();
+    }
+
+    public static async Task<bool> UserNameUpdate(string userName)
+    {
+        var request = new UserNameUpdateRequest()
+        {
+            name = userName
+        };
+        var accesstoken = GetAccessToken(DBManager.Instance.DB);
+        var req = await _postJsonRequest(APIEndpoints.UserUpdateName, UserNameUpdateRequest.ToJson(request), accesstoken);
+        if (req.result == UnityWebRequest.Result.Success && req.responseCode == 200)
+        {
+            req.Dispose();
+            return true;
+        }
+        req.Dispose();
+        return false;
     }
 
     private static async Task<UnityWebRequest> _getJsonRequest(string url, string queryParams = null, string auth = null)
