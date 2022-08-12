@@ -50,10 +50,10 @@ public class Zone : MonoBehaviour
 
     void UIUpdate()
     {
-        AinA.GetComponent<TextMeshProUGUI>().text = "AinA: " + intAinA;
+        AinA.GetComponent<TextMeshProUGUI>().text =intAinA.ToString();
         AinB.GetComponent<TextMeshProUGUI>().text = "AinB: " + intAinB;
         BinA.GetComponent<TextMeshProUGUI>().text = "BinA: " + intBinA;
-        BinB.GetComponent<TextMeshProUGUI>().text = "BinB: " + intBinB;
+        BinB.GetComponent<TextMeshProUGUI>().text = intBinB.ToString();
         Miss.GetComponent<TextMeshProUGUI>().text = "Miss: " + miss;
     }
     void Awake()

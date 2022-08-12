@@ -8,8 +8,7 @@ public class NotesScript : MonoBehaviour
 
     float time = 1;
     private GameObject zone;
-    private GameObject main;
-    private Main mainScript;
+    private Main main;
     
 
     public bool boolActive;
@@ -19,6 +18,15 @@ public class NotesScript : MonoBehaviour
     void OnEnable()
     {
         zone = GameObject.Find("Zone");
+        main = GameObject.Find("Main").GetComponent<Main>();
+        if (main.songUuid == "0f1b605e-53e1-45ca-92a8-8dc97a63071e")
+        {
+
+        }
+        if (main.songUuid == "5676c60e-3274-4111-86c9-47b7af6ba8f7")
+        {
+            time = (main.BPM / 60 * main.LPB);
+        }
         notesVelocity = (zone.transform.position - transform.position) / time;
         boolActive = true;
         /*

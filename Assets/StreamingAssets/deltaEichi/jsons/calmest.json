@@ -1,0 +1,213 @@
+{
+    "name": "str",
+    "uuid": "5676c60e-3274-4111-86c9-47b7af6ba8f7",
+    "diff": 1,
+    "BPM": 158,
+    "LPB": 1,
+    "music": "夏空 4day2022s(2).ogg",
+    "chart":[
+
+        
+        {"time": 1, "direction": 1, "type": 4},
+        {"time": 2, "direction": 1, "type": 4},
+        {"time": 3, "direction": 1, "type": 4},
+        {"time": 4, "direction": 1, "type": 4},
+
+        {"time": 16, "direction": 1, "type": 0},
+
+        {"time": 17, "direction": 1, "type": 1},
+        {"time": 19, "direction": 1, "type": 1},
+        {"time": 21, "direction": 1, "type": 1},
+        {"time": 23, "direction": 1, "type": 1},
+        {"time": 27, "direction": 1, "type": 1},
+        {"time": 29, "direction": 1, "type": 1},
+        {"time": 31, "direction": 1, "type": 2},
+        {"time": 33, "direction": 1, "type": 2},
+        {"time": 35, "direction": 1, "type": 2},
+        {"time": 37, "direction": 1, "type": 2},
+        {"time": 39, "direction": 1, "type": 2},
+        {"time": 41, "direction": 1, "type": 2},
+        {"time": 42, "direction": 1, "type": 2},
+
+        {"time": 44, "direction": 0, "type": 2},
+        {"time": 46, "direction": 1, "type": 2},
+        {"time": 48, "direction": 2, "type": 2},
+        {"time": 50, "direction": 1, "type": 2},
+        {"time": 52, "direction": 0, "type": 2},
+        {"time": 54, "direction": 1, "type": 2},
+        {"time": 56, "direction": 2, "type": 2},
+        {"time": 58, "direction": 1, "type": 2},
+        {"time": 60, "direction": 0, "type": 1},
+        {"time": 62, "direction": 1, "type": 2},
+        {"time": 64, "direction": 2, "type": 1},
+        {"time": 66, "direction": 1, "type": 2},
+        {"time": 68, "direction": 0, "type": 1},
+        {"time": 70, "direction": 1, "type": 2},
+        {"time": 72, "direction": 2, "type": 1},
+        {"time": 73, "direction": 2, "type": 1},
+        {"time": 74, "direction": 1, "type": 2},
+
+        
+        {"time": 76, "direction": 0, "type": 1},
+        {"time": 77, "direction": 0, "type": 1},
+
+        {"time": 80, "direction": 1, "type": 2},
+        {"time": 81, "direction": 0, "type": 1},
+
+        {"time": 83, "direction": 1, "type": 2},
+        {"time": 84, "direction": 0, "type": 1},
+
+        {"time": 87, "direction": 1, "type": 2},
+        {"time": 88, "direction": 0, "type": 1},
+
+        {"time": 91, "direction": 1, "type": 2},
+        {"time": 92, "direction": 0, "type": 1},
+
+        {"time": 95, "direction": 1, "type": 2},
+        {"time": 96, "direction": 0, "type": 1},
+        {"time": 97, "direction": 0, "type": 1},
+        {"time": 99, "direction": 0, "type": 1},
+        
+        {"time": 102, "direction": 1, "type": 2},
+        {"time": 103, "direction": 0, "type": 1},
+        {"time": 104, "direction": 0, "type": 1},
+        {"time": 106, "direction": 0, "type": 1},
+
+        {"time": 109, "direction": 0, "type": 1},
+        {"time": 110, "direction": 0, "type": 1},
+        {"time": 111, "direction": 0, "type": 1},
+        {"time": 112, "direction": 0, "type": 1},
+        {"time": 113, "direction": 0, "type": 1},
+        {"time": 114, "direction": 0, "type": 1},
+        {"time": 115, "direction": 0, "type": 1},
+        {"time": 116, "direction": 0, "type": 1},
+
+        {"time": 118, "direction": 0, "type": 1},
+        {"time": 119, "direction": 0, "type": 1},
+        {"time": 120, "direction": 0, "type": 1},
+
+        {"time": 122, "direction": 0, "type": 1},
+        {"time": 123, "direction": 0, "type": 1},
+
+        {"time": 125, "direction": 0, "type": 1},
+        {"time": 126, "direction": 0, "type": 1},
+
+        {"time": 128, "direction": 0, "type": 1},
+        {"time": 129, "direction": 0, "type": 1},
+
+        {"time": 131, "direction": 0, "type": 1},
+
+        {"time": 133, "direction": 0, "type": 1},
+        {"time": 134, "direction": 0, "type": 1},
+
+        {"time": 135, "direction": 0, "type": 1},
+
+        
+        {"time": 137, "direction": 0, "type": 1},
+        {"time": 139, "direction": 0, "type": 1},
+
+        {"time": 140, "direction": 0, "type": 1},
+        {"time": 142, "direction": 0, "type": 1},
+        {"time": 144, "direction": 0, "type": 1},
+        {"time": 145, "direction": 0, "type": 1},
+        {"time": 146, "direction": 0, "type": 1},
+
+        {"time": 148, "direction": 0, "type": 1},
+        {"time": 149, "direction": 0, "type": 1},
+        {"time": 150, "direction": 0, "type": 1},
+        {"time": 151, "direction": 0, "type": 1},
+        {"time": 153, "direction": 0, "type": 1},
+
+        {"time": 155, "direction": 0, "type": 1},
+        {"time": 156, "direction": 0, "type": 1},
+        
+        {"time": 158, "direction": 0, "type": 1},
+        {"time": 159, "direction": 0, "type": 1},
+
+        
+        {"time": 161, "direction": 0, "type": 1},
+        {"time": 162, "direction": 0, "type": 1},
+
+        
+        {"time": 164, "direction": 0, "type": 1},
+        {"time": 165, "direction": 0, "type": 1},
+
+        
+        {"time": 167, "direction": 0, "type": 1},
+
+        
+        {"time": 169, "direction": 0, "type": 1},
+
+        {"time": 171, "direction": 0, "type": 1},
+        {"time": 172, "direction": 0, "type": 1},
+        {"time": 173, "direction": 0, "type": 1},
+        {"time": 174, "direction": 0, "type": 1},
+        {"time": 175, "direction": 0, "type": 1},
+        {"time": 176, "direction": 0, "type": 1},
+        {"time": 177, "direction": 0, "type": 1},
+
+
+        {"time": 179, "direction": 0, "type": 1},
+        {"time": 180, "direction": 0, "type": 1},
+        {"time": 181, "direction": 0, "type": 1},
+        {"time": 184, "direction": 0, "type": 1},
+        {"time": 185, "direction": 0, "type": 1},
+        {"time": 186, "direction": 0, "type": 1},
+
+        {"time": 188, "direction": 0, "type": 1},
+        {"time": 190, "direction": 0, "type": 1},
+        {"time": 192, "direction": 0, "type": 1},
+
+        {"time": 194, "direction": 0, "type": 1},
+        {"time": 195, "direction": 0, "type": 1},
+        {"time": 196, "direction": 0, "type": 1},
+        {"time": 197, "direction": 0, "type": 1},
+        {"time": 198, "direction": 0, "type": 1},
+        {"time": 199, "direction": 0, "type": 1},
+        {"time": 200, "direction": 0, "type": 1},
+        {"time": 201, "direction": 0, "type": 1},
+
+        {"time": 204, "direction": 0, "type": 1},
+        
+        {"time": 207, "direction": 0, "type": 1},
+        {"time": 208, "direction": 0, "type": 1},
+
+        {"time": 210, "direction": 0, "type": 1},
+        
+        {"time": 213, "direction": 0, "type": 1},
+        {"time": 214, "direction": 0, "type": 1},
+
+        {"time": 217, "direction": 0, "type": 1},
+        {"time": 218, "direction": 0, "type": 1},
+        {"time": 219, "direction": 0, "type": 1}
+
+        ,
+        {"time": 221, "direction": 0, "type": 1},
+        {"time": 222, "direction": 0, "type": 1}
+
+        ,
+        {"time": 224, "direction": 0, "type": 1},
+        {"time": 225, "direction": 0, "type": 1},
+        {"time": 226, "direction": 0, "type": 1}
+
+        ,
+        {"time": 228, "direction": 0, "type": 1},
+        {"time": 229, "direction": 0, "type": 1}
+
+        ,
+        {"time": 232, "direction": 0, "type": 1},
+        {"time": 233, "direction": 0, "type": 1},
+        {"time": 234, "direction": 0, "type": 1},
+        {"time": 235, "direction": 0, "type": 1},
+
+        {"time": 237, "direction": 0, "type": 1},
+        {"time": 238, "direction": 0, "type": 1},
+        {"time": 239, "direction": 0, "type": 1},
+        {"time": 240, "direction": 0, "type": 1},
+        {"time": 242, "direction": 0, "type": 1},
+        {"time": 244, "direction": 0, "type": 1},
+        {"time": 246, "direction": 0, "type": 1},
+        {"time": 248, "direction": 0, "type": 1}
+
+    ]
+}
