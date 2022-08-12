@@ -55,7 +55,8 @@ public class Main : MonoBehaviour
 
     private Dictionary<string, string> _songs = new()
     {
-        {"0f1b605e-53e1-45ca-92a8-8dc97a63071e", "/deltaEichi/jsons/test.json"}, //{UUID, PATH}
+        {"0f1b605e-53e1-45ca-92a8-8dc97a63071e", "/deltaEichi/jsons/test.json"},
+        {"5676c60e-3274-4111-86c9-47b7af6ba8f7", "/deltaEichi/jsons/calmest.json"},//{UUID, PATH}
     };
 
     private int[] scoreNum;
