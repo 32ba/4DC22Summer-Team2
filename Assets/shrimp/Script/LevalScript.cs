@@ -19,7 +19,7 @@ public class LevalScript : MonoBehaviour
     }
     public void OnClickB()
     {
-        selectLevelID = "0"; 
+        selectLevelID = "5676c60e-3274-4111-86c9-47b7af6ba8f7"; 
     }
 
     public void OnClickStart()
