@@ -62,17 +62,22 @@ public class Main : MonoBehaviour
     private int[] scoreBlock;
     private int[] scoreDirection;
     
-    
-    void Start() 
-    {
-    }
 
     void Awake()
     {
+        
+
+        //string inputString = Resources.Load<TextAsset>("").ToString();
+        //InvokeRepeating("NotesIns", 0.0f, moveSpan);
+    }
+
+    void Start()
+    {
         sources = gameObject.GetComponents<AudioSource>();
-        var path = _songs.Where(s => s.Key == songUuid).Aggregate(Application.dataPath, (current, s) => current + s.Value);//自動変換でキモいコードになってしまった
+        var path = _songs.Where(s => s.Key == songUuid)
+            .Aggregate(Application.dataPath, (current, s) => current + s.Value); //自動変換でキモいコードになってしまった
         //string path = Application.dataPath + "/deltaEichi/jsons/test.json";
-        using(var fs = new StreamReader(path, System.Text.Encoding.GetEncoding("UTF-8")))
+        using (var fs = new StreamReader(path, System.Text.Encoding.GetEncoding("UTF-8")))
         {
             string result = fs.ReadToEnd();
             Debug.Log(result);
@@ -91,9 +96,6 @@ public class Main : MonoBehaviour
                 scoreDirection[i] = inputJson.chart[i].direction;
             }
         }
-
-        //string inputString = Resources.Load<TextAsset>("").ToString();
-        //InvokeRepeating("NotesIns", 0.0f, moveSpan);
     }
 
     void GetScoreTime()
