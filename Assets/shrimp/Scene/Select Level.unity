@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 707519846}
   - component: {fileID: 707519845}
   m_Layer: 5
-  m_Name: easybutton
+  m_Name: natuzorabutton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 1949592706}
   - component: {fileID: 1949592705}
   m_Layer: 5
-  m_Name: hardbutton
+  m_Name: calmestbutton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30BF\u30A4\u30C8\u30EB"
+  m_text: calmest
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d5ad33f4345f374785830ababf93252, type: 2}
   m_sharedMaterial: {fileID: -8464368256640083179, guid: 0d5ad33f4345f374785830ababf93252, type: 2}
@@ -1316,8 +1316,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
