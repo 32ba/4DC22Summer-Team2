@@ -15,12 +15,9 @@ EditorBuildSettings:
     path: Assets/shrimp/Scene/Select Level.unity
     guid: 88cfd545475e6d94aa8cd2814870a683
   - enabled: 1
-    path: Assets/shrimp/Scene/test.unity
-    guid: f99f08a6b56cce94faefacc24c0812fe
+    path: Assets/deltaEichi/Scenes/deltaEichi_test.unity
+    guid: ea95daa6719113649833ab0c40396b5a
   - enabled: 1
     path: Assets/32ba/Scenes/Result.unity
     guid: e521ad5b0b6da504a980056975e1b2bb
-  - enabled: 1
-    path: Assets/deltaEichi/Scenes/deltaEichi_test.unity
-    guid: ea95daa6719113649833ab0c40396b5a
   m_configObjects: {}
