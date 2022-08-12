@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.IO;
-using System;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 class Song
@@ -21,7 +21,8 @@ public class Main : MonoBehaviour
 
     private AudioSource[] sources;
 
-    [Serializable] public class InputJson
+    [Serializable]
+    public class InputJson
     {
         public int BPM;
         public int LPB;
@@ -30,14 +31,15 @@ public class Main : MonoBehaviour
         public string uuid;
     }
 
-    [Serializable] public class Notes
+    [Serializable]
+    public class Notes
     {
         public int time;
         public int direction;
         public int type;
     }
     [SerializeField] private GameObject gameOverPanelObject;
-    
+
 
     private float moveSpan = 0.01f;
     private float nowTime = 0.0f;
@@ -45,8 +47,8 @@ public class Main : MonoBehaviour
     private int beatCount = 0;
     private bool isBeat = false;
 
-    private int BPM;
-    private int LPB;
+    public int BPM;
+    public int LPB;
 
     private bool isEnd = false;
 
@@ -62,9 +64,9 @@ public class Main : MonoBehaviour
     private int[] scoreNum;
     private int[] scoreBlock;
     private int[] scoreDirection;
-    
-    
-    void Start() 
+
+
+    void Start()
     {
         sources = gameObject.GetComponents<AudioSource>();
         
@@ -96,7 +98,7 @@ public class Main : MonoBehaviour
 
     void Awake()
     {
-        
+
 
         //string inputString = Resources.Load<TextAsset>("").ToString();
         //InvokeRepeating("NotesIns", 0.0f, moveSpan);
@@ -108,25 +110,34 @@ public class Main : MonoBehaviour
 
         if (beatCount >= scoreNum.Length)
         {
-            isEnd = true;
-            score = Zone.gameObject.GetComponent<Zone>().score;
-            TrasitionToResultScene();
-            return;
+            StartCoroutine("End");
         }
 
-	    beatNum = (int)((nowTime) * BPM / 60 * LPB);
+        beatNum = (int)((nowTime) * BPM / 60 * LPB);
     }
 
-    void NotesIns(){
+    private IEnumerator End()
+    {
+
+        yield return new WaitForSeconds(5.0f);
+        isEnd = true;
+        score = Zone.gameObject.GetComponent<Zone>().score;
+        TrasitionToResultScene();
+    }
+
+    void NotesIns()
+    {
         //Debug.Log(beatNum + ", " + nowTime);
 
         GetScoreTime();
 
-        if(beatCount < scoreNum.Length){
+        if (beatCount < scoreNum.Length)
+        {
             isBeat = (scoreNum[beatCount] == beatNum);
         }
-	
-        if(isBeat){
+
+        if (isBeat)
+        {
             float v3 = 0f;
             if (scoreDirection[beatCount] == 0)
             {
@@ -144,27 +155,39 @@ public class Main : MonoBehaviour
             }
 
 
-            if (scoreBlock[beatCount]==0)
+            if (scoreBlock[beatCount] == 0)
             {
-                sources[0].Play();
+                //夏空
+                if (songUuid== "0f1b605e-53e1-45ca-92a8-8dc97a63071e")
+                {
+                    sources[0].Play();
+                }
+
+                //calmest
+                if (songUuid == "5676c60e-3274-4111-86c9-47b7af6ba8f7")
+                {
+                    sources[2].Play();
+                }
             }
 
-            if(scoreBlock[beatCount]==1){
+            if (scoreBlock[beatCount] == 1)
+            {
                 Instantiate(NotesA, new Vector3(10f, v3, 0f), Quaternion.identity);
             }
 
-            if(scoreBlock[beatCount]==2){ 
+            if (scoreBlock[beatCount] == 2)
+            {
                 Instantiate(NotesB, new Vector3(10f, v3, 0f), Quaternion.identity);
             }
 
-            if(scoreBlock[beatCount] == 4)
+            if (scoreBlock[beatCount] == 4)
             {
                 sources[1].Play();
             }
 
             beatCount++;
             isBeat = false;
-	}
+        }
 
         GetScoreTime();
         //Debug.Log("nowTime" + nowTime);
@@ -174,7 +197,7 @@ public class Main : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(isEnd == false)
+        if (isEnd == false)
         {
             NotesIns();
         }
