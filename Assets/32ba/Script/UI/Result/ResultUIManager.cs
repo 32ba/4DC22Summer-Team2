@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class ResultUIManager : MonoBehaviour
 {
     private GetRankingResponse _ranking;
+    private string _songUuid;
 
     [SerializeField] private GameObject scoreboardPrefabObj;
     [SerializeField] private Transform scoreboardElementObj;
@@ -18,12 +19,13 @@ public class ResultUIManager : MonoBehaviour
 
     private async void Start()
     {
-        var scoreObject = new ScoreGetter.ScoreClass()
+        /*var scoreObject = new ScoreGetter.ScoreClass()
         {
             SongUuid = "2a695382-7aa6-4aad-bcc0-51913909802c", //TEST UUID
             Score = 12345678
         };
-        ScoreGetter.Instance.SetScore(scoreObject);
+        ScoreGetter.Instance.SetScore(scoreObject);*/
+        _songUuid = ScoreGetter.Instance.songUuid;
 
         var sendScoreRequest = new SendScoreRequest
         {
@@ -53,12 +55,30 @@ public class ResultUIManager : MonoBehaviour
             SetHighScore(ScoreGetter.Instance.songUuid, ScoreGetter.Instance.score);
             highScore = ScoreGetter.Instance.score;
         }
-        highScoreText.text = "ハイスコア : " + highScore;
+        highScoreText.text = highScore.ToString();
     }
 
     public void OnClickTitleButton()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("shrimp/Scene/Start");
+    }
+
+    public void OnClickRetryButton()
+    {
+        TrasitionToGameScene();
+    }
+    
+    private void TrasitionToGameScene() //ゲームへ遷移する際はこれを呼ぶ
+    {
+        SceneManager.sceneLoaded += SendSongUuidToGame;
+        SceneManager.LoadScene("deltaEichi/Scenes/deltaEichi_test");
+    }
+
+    private void SendSongUuidToGame(Scene next, LoadSceneMode mode)
+    {
+        var gameManager = GameObject.FindWithTag("GameController").GetComponent<Main>();
+        gameManager.songUuid = _songUuid;
+        SceneManager.sceneLoaded -= SendSongUuidToGame;
     }
     
     private class HighScore
