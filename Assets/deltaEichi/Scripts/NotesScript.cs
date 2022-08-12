@@ -17,7 +17,6 @@ public class NotesScript : MonoBehaviour
     {
         zone = GameObject.Find("Zone");
         notesVelocity = (zone.transform.position - transform.position) / time;
-        Debug.Log(notesVelocity);
         boolActive = true;
         /*
         main = GameObject.Find("Main");
