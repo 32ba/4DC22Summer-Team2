@@ -55,7 +55,7 @@ public class Main : MonoBehaviour
 
     private Dictionary<string, string> _songs = new()
     {
-        {"0f1b605e-53e1-45ca-92a8-8dc97a63071e", "/StreamingAssets/deltaEichi/jsons/test.json"}, //{UUID, PATH}
+        {"0f1b605e-53e1-45ca-92a8-8dc97a63071e", "/deltaEichi/jsons/test.json"}, //{UUID, PATH}
     };
 
     private int[] scoreNum;
@@ -66,8 +66,13 @@ public class Main : MonoBehaviour
     void Start() 
     {
         sources = gameObject.GetComponents<AudioSource>();
-        var path = _songs.Where(s => s.Key == songUuid)
-            .Aggregate(Application.dataPath, (current, s) => current + s.Value); //自動変換でキモいコードになってしまった
+        
+        #if UNITY_STANDALONE_OSX
+            var path = _songs.Where(s => s.Key == songUuid).Aggregate(Application.dataPath, (current, s) => current +"/Resources/Data/StreamingAssets" + s.Value);
+        #else
+            var path = _songs.Where(s => s.Key == songUuid).Aggregate(Application.dataPath, (current, s) => current +"/StreamingAssets" + s.Value); //自動変換でキモいコードになってしまった
+        #endif
+        
         //string path = Application.dataPath + "/deltaEichi/jsons/test.json";
         using (var fs = new StreamReader(path, System.Text.Encoding.GetEncoding("UTF-8")))
         {
