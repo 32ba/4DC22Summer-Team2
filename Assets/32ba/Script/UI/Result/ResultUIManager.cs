@@ -60,7 +60,7 @@ public class ResultUIManager : MonoBehaviour
 
     public void OnClickTitleButton()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("shrimp/Scene/Start");
     }
 
     public void OnClickRetryButton()

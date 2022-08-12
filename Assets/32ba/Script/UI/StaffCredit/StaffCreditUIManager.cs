@@ -7,6 +7,10 @@ public class StaffCreditUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject licensesPanelGameObject;
     
+    public void OnClickStaffCreditButton()
+    {
+        gameObject.SetActive(true);
+    }
     public void OnClickStaffCreditExitButton()
     {
         gameObject.SetActive(false);
