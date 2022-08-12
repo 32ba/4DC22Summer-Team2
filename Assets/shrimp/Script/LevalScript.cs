@@ -24,13 +24,22 @@ public class LevalScript : MonoBehaviour
 
     public void OnClickStart()
     {
-        if(selectLevelID == "0")
+        if(selectLevelID != "0")
         {
+            TrasitionToGameScene();
+        }
+    }
+    
+    private void TrasitionToGameScene() //ゲームへ遷移する際はこれを呼ぶ
+    {
+        SceneManager.sceneLoaded += SendSongUuidToGame;
+        SceneManager.LoadScene("deltaEichi/Scenes/deltaEichi_test");
+    }
 
-        }
-        else
-        {
-            SceneManager.LoadScene("test");
-        }
+    private void SendSongUuidToGame(Scene next, LoadSceneMode mode)
+    {
+        var gameManager = GameObject.FindWithTag("GameController").GetComponent<Main>();
+        gameManager.songUuid = selectLevelID;
+        SceneManager.sceneLoaded -= SendSongUuidToGame;
     }
 }
