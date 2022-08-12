@@ -1,0 +1,249 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "Param_de",
+			"GroupId": "ParamGroup",
+			"Name": "消滅"
+		},
+		{
+			"Id": "Param_ef",
+			"GroupId": "ParamGroup",
+			"Name": "エフェクト"
+		},
+		{
+			"Id": "Param",
+			"GroupId": "ParamGroup2",
+			"Name": "左肩"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "ParamGroup2",
+			"Name": "肘"
+		},
+		{
+			"Id": "Param3",
+			"GroupId": "ParamGroup2",
+			"Name": "手首"
+		},
+		{
+			"Id": "Param4",
+			"GroupId": "ParamGroup2",
+			"Name": "切り替え"
+		},
+		{
+			"Id": "Param9",
+			"GroupId": "ParamGroup4",
+			"Name": "肩"
+		},
+		{
+			"Id": "Param10",
+			"GroupId": "ParamGroup4",
+			"Name": "肘"
+		},
+		{
+			"Id": "Param11",
+			"GroupId": "ParamGroup4",
+			"Name": "手首"
+		},
+		{
+			"Id": "Param12",
+			"GroupId": "ParamGroup4",
+			"Name": "切り替え"
+		},
+		{
+			"Id": "Param6",
+			"GroupId": "ParamGroup3",
+			"Name": "股関節"
+		},
+		{
+			"Id": "Param7",
+			"GroupId": "ParamGroup3",
+			"Name": "膝"
+		},
+		{
+			"Id": "Param8",
+			"GroupId": "ParamGroup5",
+			"Name": "股関節"
+		},
+		{
+			"Id": "Param13",
+			"GroupId": "ParamGroup5",
+			"Name": "膝"
+		},
+		{
+			"Id": "Param14",
+			"GroupId": "",
+			"Name": "腰"
+		},
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "",
+			"Name": "角度 X"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "",
+			"Name": "角度 Y"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "",
+			"Name": "角度 Z"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "",
+			"Name": "目玉 X"
+		},
+		{
+			"Id": "ParamEyeBallY",
+			"GroupId": "",
+			"Name": "目玉 Y"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "",
+			"Name": "口　変形"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "",
+			"Name": "口　開閉"
+		},
+		{
+			"Id": "ParamCheek",
+			"GroupId": "",
+			"Name": "照れ"
+		},
+		{
+			"Id": "ParamBodyAngleX",
+			"GroupId": "",
+			"Name": "体の回転　X"
+		},
+		{
+			"Id": "ParamBodyAngleY",
+			"GroupId": "",
+			"Name": "体の回転　Y"
+		},
+		{
+			"Id": "ParamBodyAngleZ",
+			"GroupId": "",
+			"Name": "体の回転　Z"
+		},
+		{
+			"Id": "Param5",
+			"GroupId": "",
+			"Name": "全体回転"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "呼吸"
+		},
+		{
+			"Id": "ParamHairFront",
+			"GroupId": "",
+			"Name": "髪揺れ　前"
+		},
+		{
+			"Id": "ParamHairSide",
+			"GroupId": "",
+			"Name": "髪揺れ　横"
+		},
+		{
+			"Id": "ParamHairBack",
+			"GroupId": "",
+			"Name": "髪揺れ　後"
+		}
+	],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup",
+			"GroupId": "",
+			"Name": "エフェクト"
+		},
+		{
+			"Id": "ParamGroup2",
+			"GroupId": "",
+			"Name": "左腕"
+		},
+		{
+			"Id": "ParamGroup4",
+			"GroupId": "",
+			"Name": "右腕"
+		},
+		{
+			"Id": "ParamGroup3",
+			"GroupId": "",
+			"Name": "左足"
+		},
+		{
+			"Id": "ParamGroup5",
+			"GroupId": "",
+			"Name": "右足"
+		}
+	],
+	"Parts": [
+		{
+			"Id": "Part",
+			"Name": "消滅"
+		},
+		{
+			"Id": "Part2",
+			"Name": "上"
+		},
+		{
+			"Id": "Part3",
+			"Name": "人間"
+		},
+		{
+			"Id": "Part13",
+			"Name": "下"
+		},
+		{
+			"Id": "Part4",
+			"Name": "口"
+		},
+		{
+			"Id": "Part5",
+			"Name": "目"
+		},
+		{
+			"Id": "Part14",
+			"Name": "右腕"
+		},
+		{
+			"Id": "Part9",
+			"Name": "右足"
+		},
+		{
+			"Id": "Part10",
+			"Name": "左足"
+		},
+		{
+			"Id": "Part15",
+			"Name": "左腕"
+		},
+		{
+			"Id": "Part6",
+			"Name": "まつげ"
+		},
+		{
+			"Id": "Part7",
+			"Name": "右手"
+		},
+		{
+			"Id": "Part8",
+			"Name": "右腕"
+		},
+		{
+			"Id": "Part11",
+			"Name": "左手"
+		},
+		{
+			"Id": "Part12",
+			"Name": "左腕"
+		}
+	]
+}
