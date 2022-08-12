@@ -65,14 +65,11 @@ public class Main : MonoBehaviour
     
     void Start() 
     {
-    }
-
-    void Awake()
-    {
         sources = gameObject.GetComponents<AudioSource>();
-        var path = _songs.Where(s => s.Key == songUuid).Aggregate(Application.dataPath, (current, s) => current + s.Value);//自動変換でキモいコードになってしまった
+        var path = _songs.Where(s => s.Key == songUuid)
+            .Aggregate(Application.dataPath, (current, s) => current + s.Value); //自動変換でキモいコードになってしまった
         //string path = Application.dataPath + "/deltaEichi/jsons/test.json";
-        using(var fs = new StreamReader(path, System.Text.Encoding.GetEncoding("UTF-8")))
+        using (var fs = new StreamReader(path, System.Text.Encoding.GetEncoding("UTF-8")))
         {
             string result = fs.ReadToEnd();
             InputJson inputJson = JsonUtility.FromJson<InputJson>(result);
@@ -89,6 +86,11 @@ public class Main : MonoBehaviour
                 scoreDirection[i] = inputJson.chart[i].direction;
             }
         }
+    }
+
+    void Awake()
+    {
+        
 
         //string inputString = Resources.Load<TextAsset>("").ToString();
         //InvokeRepeating("NotesIns", 0.0f, moveSpan);
