@@ -19,7 +19,7 @@ public class LevalScript : MonoBehaviour
     }
     public void OnClickB()
     {
-        selectLevelID = "1"; 
+        selectLevelID = "0"; 
     }
 
     public void OnClickStart()
