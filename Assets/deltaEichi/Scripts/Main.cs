@@ -75,9 +75,7 @@ public class Main : MonoBehaviour
         using(var fs = new StreamReader(path, System.Text.Encoding.GetEncoding("UTF-8")))
         {
             string result = fs.ReadToEnd();
-            Debug.Log(result);
             InputJson inputJson = JsonUtility.FromJson<InputJson>(result);
-            Debug.Log(inputJson.BPM);
             songUuid = inputJson.uuid;
             BPM = inputJson.BPM;
             LPB = inputJson.LPB;
@@ -102,10 +100,8 @@ public class Main : MonoBehaviour
 
         if (beatCount >= scoreNum.Length)
         {
-            Debug.Log("end");
             isEnd = true;
             score = Zone.gameObject.GetComponent<Zone>().score;
-            Debug.Log(score);
             TrasitionToResultScene();
             return;
         }
@@ -131,7 +127,7 @@ public class Main : MonoBehaviour
 
             if (scoreDirection[beatCount] == 1)
             {
-                v3 = 0f;
+                v3 = 0.6f;
             }
 
             if (scoreDirection[beatCount] == 2)
@@ -181,8 +177,12 @@ public class Main : MonoBehaviour
     {
     }
 
-    private void GameOver() //ゲームオーバー時に呼ぶ
+    public void GameOver() //ゲームオーバー時に呼ぶ
     {
+
+        sources[0].Stop();
+        isEnd = true;
+
         gameOverPanelObject.SetActive(true); //ToDo これの前に音声停止処理を呼ぶ
     }
 

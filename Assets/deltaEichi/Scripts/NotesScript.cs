@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class NotesScript : MonoBehaviour
 {
+    [SerializeField] GameObject Effect;
+
     float time = 1;
     private GameObject zone;
     private GameObject main;
     private Main mainScript;
+    
 
     public bool boolActive;
     private Vector3 notesVelocity;
@@ -17,7 +20,6 @@ public class NotesScript : MonoBehaviour
     {
         zone = GameObject.Find("Zone");
         notesVelocity = (zone.transform.position - transform.position) / time;
-        Debug.Log(notesVelocity);
         boolActive = true;
         /*
         main = GameObject.Find("Main");
@@ -37,6 +39,11 @@ public class NotesScript : MonoBehaviour
         transform.position += notesVelocity * Time.deltaTime;
     }
 
+
+    void OnDestroy()
+    {
+        Instantiate(Effect, this.transform.position, Quaternion.identity);
+    }
 
 }
 

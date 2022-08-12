@@ -12,6 +12,10 @@ public class Zone : MonoBehaviour
     [SerializeField] GameObject BinA;
     [SerializeField] GameObject BinB;
     [SerializeField] GameObject Miss;
+    [SerializeField] GameObject L2D;
+    [SerializeField] GameObject Main;
+
+    private Animator anim;
     public Slider slider;
 
     private AudioSource[] sources;
@@ -55,8 +59,8 @@ public class Zone : MonoBehaviour
     void Awake()
     {
         sources = gameObject.GetComponents<AudioSource>();
-        Debug.Log(slider.GetComponent<Slider>().value);
         slider.GetComponent<Slider>().value = 1;
+        anim = L2D.GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -78,6 +82,7 @@ public class Zone : MonoBehaviour
             }
             else
             {
+                anim.SetTrigger("Punch");
                 //ÉmÅ[ÉcAÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
                 if (boolIsNotesAStay)
                 {
@@ -86,19 +91,16 @@ public class Zone : MonoBehaviour
                     if (floatDist < 0.1f)
                     {
                         notesPerfect++;
-                        Debug.Log("Perfect!");
                         s = perfectScore;
                     }
                     else if(floatDist < 0.3f)
                     {
                         notesGreat++;
-                        Debug.Log("Great!");
                         s = greatScore;
                     }
                     else
                     {
                         notesGood++;
-                        Debug.Log("Good!");
                         s = goodScore;
                     }
                     score += s * magni;
@@ -121,19 +123,16 @@ public class Zone : MonoBehaviour
                     if (floatDist < 0.1)
                     {
                         notesPerfect++;
-                        Debug.Log("Perfect!");
                         s = perfectScore;
                     }
                     else if (floatDist < 0.2)
                     {
                         notesGreat++;
-                        Debug.Log("Great!");
                         s = greatScore;
                     }
                     else
                     {
                         notesGood++;
-                        Debug.Log("Good!");
                         s = goodScore;
                     }
 
@@ -141,7 +140,6 @@ public class Zone : MonoBehaviour
 
                     sources[1].Play();
                     boolIsNotesAStay = false;
-                    Debug.Log("NotA!");
                     /*
                     Debug.Log(this.transform.position);
                     Debug.Log(col.transform.position);
@@ -166,6 +164,7 @@ public class Zone : MonoBehaviour
             }
             else
             {
+                anim.SetTrigger("Kick");
                 //ÉmÅ[ÉcBÇ™îªíËÉ]Å[ÉìÇ…Ç†ÇÍÇŒ
                 if (boolIsNotesBStay)
                 {
@@ -174,26 +173,22 @@ public class Zone : MonoBehaviour
                     if (floatDist < 0.1)
                     {
                         notesPerfect++;
-                        Debug.Log("Perfect!");
                         s = perfectScore;
                     }
                     else if (floatDist < 0.2)
                     {
                         notesGreat++;
-                        Debug.Log("Great!");
                         s = greatScore;
                     }
                     else
                     {
                         notesGood++;
-                        Debug.Log("Good!");
                         s = goodScore;
                     }
 
                     score += s * magni;
                     sources[1].Play();
                     boolIsNotesBStay = false;
-                    Debug.Log("B!");
                     /*
                     Debug.Log(this.transform.position);
                     Debug.Log(col.transform.position);
@@ -214,26 +209,22 @@ public class Zone : MonoBehaviour
                     if (floatDist < 0.1)
                     {
                         notesPerfect++;
-                        Debug.Log("Perfect!");
                         s = perfectScore;
                     }
                     else if (floatDist < 0.2)
                     {
                         notesGreat++;
-                        Debug.Log("Great!");
                         s = greatScore;
                     }
                     else
                     {
                         notesGood++;
-                        Debug.Log("Good!");
                         s = goodScore;
                     }
 
                     score += s;
                     sources[0].Play();
                     boolIsNotesBStay = false;
-                    Debug.Log("NotB!");
                     /*
                     Debug.Log(this.transform.position);
                     Debug.Log(col.transform.position);
@@ -279,15 +270,16 @@ public class Zone : MonoBehaviour
             boolIsNotesAStay = false;
             if (script.boolActive)
             {
-                Debug.Log("miss");
                 hitPoint -= 10;
                 miss++;
                 slider.GetComponent<Slider>().value = hitPoint / 100f;
-                Debug.Log(hitPoint + "/100");
+                if (hitPoint <= 0)
+                {
+                    Main.GetComponent<Main>().GameOver();
+                }
             }
             else
             {
-                Debug.Log("Notmiss");
             }
         }
 
@@ -296,15 +288,16 @@ public class Zone : MonoBehaviour
             boolIsNotesBStay = false;
             if (script.boolActive)
             {
-                Debug.Log("miss");
                 hitPoint -= 10;
                 miss++;
-                Debug.Log(hitPoint/100);
                 slider.GetComponent<Slider>().value = hitPoint / 100f;
+                if (hitPoint <= 0)
+                {
+                    Main.GetComponent<Main>().GameOver();
+                }
             }
             else
             {
-                Debug.Log("Notmiss");
             }
         }
 
